@@ -6,9 +6,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @post = User.create(post_params)
-    if @post.save
-      redirect_to #to login?
+    @user = User.create(post_params)
+    if @user.save
+      redirect_to users_url
     else
       render 'new'
     end
