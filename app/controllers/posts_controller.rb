@@ -4,12 +4,18 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @user = User.find(1) # needs to be params[user_id]
+    @post = @user.posts.create(post_params)
+    @post.save
     redirect_to posts_url
   end
 
   def index
     @posts = Post.all
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private
