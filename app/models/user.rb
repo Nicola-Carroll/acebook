@@ -1,5 +1,5 @@
 require_relative 'application_record'
 
 class User < ApplicationRecord
-  # validates :username, uniqueness: true
+  validates_uniqueness_of :username, :email
 end
