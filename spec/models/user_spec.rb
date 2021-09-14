@@ -20,11 +20,11 @@ RSpec.describe User, type: :model do
   #   p User.all
   #   expect {
   #     User.create(
-  #       first_name: 'Tom',
-  #       last_name: 'Balm',
-  #       username: 'HilliBilly',
-  #       email: 'tom@example.com',
-  #       password: 'griltheAnim4lz'
+        # first_name: 'Tom',
+        # last_name: 'Balm',
+        # username: 'HilliBilly',
+        # email: 'tom@example.com',
+        # password: 'griltheAnim4lz'
   #     )
   #   }.to raise_error ActiveRecord::RecordNotUnique
   #   p User.all
