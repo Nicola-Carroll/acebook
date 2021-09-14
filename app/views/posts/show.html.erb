@@ -1,0 +1,10 @@
+
+  <p><%= @post.message %></p>
+  <p><%= @post.comments %></p>
+
+  <%= form_with do |form| %>
+  <%= form.label :message %>
+  <%= form.text_field :message %>
+
+  <%= form.submit "Submit" %>
+<% end %>

@@ -219,4 +219,8 @@ RUBY VERSION
    ruby 3.0.2p107
 
 BUNDLED WITH
+<<<<<<< HEAD
    2.2.26
+=======
+   2.2.27
+>>>>>>> 32dfb83 (Linked comments and posts, added button)

@@ -1,14 +1,13 @@
-Rails
-  .application
-  .routes
-  .draw do
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-    resources :posts
-
-    get 'login', to: 'sessions#new'
-    post 'login', to: 'sessions#create'
-
-    get 'signup', to: 'users#new'
-    post 'signup', to: 'users#create'
+Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :posts do
+    resources :comments do
+    end
   end
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+
+  get 'signup', to: 'users#new'
+  post 'signup', to: 'users#create'
+end
