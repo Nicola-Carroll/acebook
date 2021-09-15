@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def create
     @new_post = Post.create(post_params)
+    # if post_params[:message] == ""
     redirect_to '/posts'
   end
 
