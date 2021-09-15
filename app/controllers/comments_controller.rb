@@ -1,11 +1,13 @@
 class CommentsController < ApplicationController
-  def new
-    @comment = Comment.new(post_id: params[:post_id])
+  def create
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create(params[:comment].permit(:message, :user_id))
+    redirect_to post_path(@post)
   end
 
-  def create
-    @post = Post.find(params[:id])
-    @comment = @post.comments.create(params[:message])
-    redirect_to post_path(@post)
+  def update
+    @comment = Comment.find(params[:post_id])
+    @comment.likes = @comment.likes + 1
+    @comment.save
   end
 end
