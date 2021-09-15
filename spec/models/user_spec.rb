@@ -40,4 +40,16 @@ RSpec.describe User, type: :model do
       )
     expect(user_2).to_not be_valid
   end
+
+  it 'should only accept valid email addresses' do
+    user =
+      User.create(
+        first_name: 'Tom',
+        last_name: 'Balm',
+        username: 'Something_different_again',
+        email: 'this isn\'t an email',
+        password: 'griltheAnim4lz'
+      )
+    expect(user).to_not be_valid
+  end
 end

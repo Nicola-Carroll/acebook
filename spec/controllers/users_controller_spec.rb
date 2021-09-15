@@ -17,14 +17,31 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'POST /' do
     it 'responds with 200' do
-      post :create, params: { user: { 
-        first_name: 'Tom',
-        last_name: 'Balm',
-        username: 'Tommy',
-        email: 'tom@example.com',
-        password: 'griltheAnim4lz' } 
-      }
+      post :create,
+           params: {
+             user: {
+               first_name: 'Tom',
+               last_name: 'Balm',
+               username: 'Tommy',
+               email: 'tom@example.com',
+               password: 'griltheAnim4lz'
+             }
+           }
       expect(response).to redirect_to(users_url) #redirects us to index?
+    end
+
+    it 'renders if user is invalid' do
+      post :create,
+           params: {
+             user: {
+               first_name: '',
+               last_name: '',
+               username: '',
+               email: '',
+               password: ''
+             }
+           }
+      expect(response).to have_http_status(200)
     end
 
     # it 'creates a post' do
