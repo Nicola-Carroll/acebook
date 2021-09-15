@@ -8,9 +8,10 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
-  describe "POST /posts" do
-    it "responds with 200" do
-      post :create, params: { post: { message: "Hello, world!" } }
+  describe "You should be able to successfully create a new post" do
+    it "Accepts the parameters" do
+      post :new_post, params: { post: { message: "Hello, world!" } }
+      # We want the post request to redirect back to the GET page index
       expect(response).to redirect_to(index)
     end
   end
