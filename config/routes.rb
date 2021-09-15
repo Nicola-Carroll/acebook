@@ -6,5 +6,13 @@ Rails
 
     resources :posts, :users
 
-    get '/login', to: 'users#login'
+    get 'login', to: 'sessions#new'
+    post 'login', to: 'sessions#create'
+
+    # get to posts
+    
+    # get '/login', to: 'users#login'
+
+
+
   end

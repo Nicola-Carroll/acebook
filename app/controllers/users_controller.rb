@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  def login; end
 
   def new
     @user = User.new
@@ -8,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
+
       redirect_to users_url, notice: 'User created :D'
     else
       render 'new'

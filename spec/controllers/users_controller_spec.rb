@@ -1,13 +1,7 @@
 require 'rails_helper'
+require 'helper_methods'
 
 RSpec.describe UsersController, type: :controller do
-  describe 'GET /login ' do
-    it 'should be able to login' do
-      get :login
-      expect(response).to have_http_status(200)
-    end
-  end
-
   describe 'GET /new ' do
     it 'responds with 200' do
       get :new
@@ -48,6 +42,28 @@ RSpec.describe UsersController, type: :controller do
     #   user :create, params: { post: { message: 'Hello, world!' } }
     #   expect(User.find_by(message: 'Hello, world!')).to be
     # end
+  end
+
+  describe 'GET /login ' do
+    it 'should be able to visit login route' do
+      get :login
+      expect(response).to have_http_status(200)
+    end
+
+    it 'successfully loged in - redirected to post overview route ' do
+      add_new_sample_user
+      post :login, params: { 
+        email: 'hilly@example.com', password: 'griltheAnim4lz'
+      }
+      expect(response).to redirect_to(posts_url)
+    end
+
+    it 'unable to login with invalid details' do
+      post :login, params: { 
+        email: 'hilly@example.com', password: 'griltheAnim4lz'
+      }
+      expect(response).to have_http_status(200)
+    end
   end
 
   describe 'GET /' do
