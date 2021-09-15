@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
   def create
     @new_post = Post.create(post_params)
-    redirect_to index
+    redirect_to '/posts'
   end
 
   private

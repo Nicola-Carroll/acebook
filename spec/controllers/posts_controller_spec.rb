@@ -10,9 +10,9 @@ RSpec.describe PostsController, type: :controller do
 
   describe "You should be able to successfully create a new post" do
     it "Accepts the parameters" do
-      post :new_post, params: { post: { message: "Hello, world!", user_id: 1 } }
+      post :create, params: { post: { message: "Hello, world!", user_id: 1 } }
       # We want the post request to redirect back to the GET page index
-      expect(response).to redirect_to(index)
+      expect(response).to redirect_to('/posts')
     end
   end
 

@@ -38,5 +38,5 @@ users = [
     }
   ]
 
-#users.each { |user| User.create(user) }
+users.each { |user| User.create(user) }
 posts.each { |post| Post.create(post) }
