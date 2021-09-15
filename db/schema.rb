@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_09_16_120420) do
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
     t.string "message"
-    t.integer "likes"
+    t.integer "likes", default: 0
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
