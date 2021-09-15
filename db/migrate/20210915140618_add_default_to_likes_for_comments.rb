@@ -1,0 +1,5 @@
+class AddDefaultToLikesForComments < ActiveRecord::Migration[6.1]
+  def change
+    change_column_default :comments, :likes, from: nil, to: 0
+  end
+end
