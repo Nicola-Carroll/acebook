@@ -1,5 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject {
+    described_class.new(message: "Hello",
+                        likes: 1,
+                        user_id: 1,
+                        post_id: 1)
+  }
+  it "is valid with valid attributes" do
+    expect(subject).to be_valid
+  end
+  
+  it "is not valid without a message" do
+    subject.message = nil
+    expect(subject).to_not be_valid
+  end
 end

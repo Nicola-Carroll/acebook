@@ -6,8 +6,10 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment = Comment.find(params[:post_id])
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
     @comment.likes = @comment.likes + 1
     @comment.save
+    redirect_to post_path(@post)
   end
 end
