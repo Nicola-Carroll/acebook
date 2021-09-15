@@ -52,16 +52,20 @@ RSpec.describe UsersController, type: :controller do
 
     it 'successfully loged in - redirected to post overview route ' do
       add_new_sample_user
-      post :login, params: { 
-        email: 'hilly@example.com', password: 'griltheAnim4lz'
-      }
+      post :login,
+           params: {
+             email: 'hilly@example.com',
+             password: 'griltheAnim4lz'
+           }
       expect(response).to redirect_to(posts_url)
     end
 
     it 'unable to login with invalid details' do
-      post :login, params: { 
-        email: 'hilly@example.com', password: 'griltheAnim4lz'
-      }
+      post :login,
+           params: {
+             email: 'hilly@example.com',
+             password: 'griltheAnim4lz'
+           }
       expect(response).to have_http_status(200)
     end
   end
