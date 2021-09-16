@@ -4,15 +4,17 @@
   <strong>Comments:</strong>
   <br><br>
   <% @post.comments.each do |comment| %>
-  User <%= comment.user_id %>:
+  <%= User.find(comment.user_id).first_name %>
+  <%= User.find(comment.user_id).last_name %>:
   <br>
   <%= comment.message %>
-  <%= button_to("Like", post_comment_path(comment), method: 'patch') %>
+  <%= link_to 'Like', post_comment_path(comment), method: 'patch' %>
   <br>
   <% if comment.likes %>
   Likes: <%= comment.likes %>
   <br>
   <% end %>
+  <br>
   <% end %>
   </p>
 
@@ -20,7 +22,7 @@
 <%= form_for([@post, @post.comments.build]) do |form| %>
   <%= form.label 'Add comment:' %>
   <%= form.text_field :message %>
-  <%= form.hidden_field :user_id, value: 2 %> <%# refactor with user_id from session %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
   <%= form.submit "Submit" %>
 <% end %>
 </div>
