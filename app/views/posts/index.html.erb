@@ -1,12 +1,14 @@
 <%= form_for @new_post do |form| %>
   <%= form.label :message %>
   <%= form.text_field :message %>
-  <%= form.label :user_id %>
-  <%= form.text_field :user_id %><br>
+  <%#= form.label :user_id %>
+  <%#= form.text_field :user_id %><br>
   <%= form.submit "Submit" %>
 <% end %>
 
 <% @list_posts.each do |post| %>
   <p><%= post.message %></p>
 <% end %>
+
+<%= session[:user_id] %>
 

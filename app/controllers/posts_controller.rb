@@ -8,14 +8,16 @@ class PostsController < ApplicationController
 
   def create
     @new_post = Post.create(post_params)
+    # user id session[:user_id]
     # if post_params[:message] == ""
     redirect_to '/posts'
   end
 
+  
   private
 
   def post_params
-    params.require(:post).permit(:message, :user_id)
+    params.require(:post).permit(:message)
   end
 
 

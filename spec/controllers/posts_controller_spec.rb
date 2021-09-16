@@ -6,6 +6,10 @@ RSpec.describe PostsController, type: :controller do
       get :index
       expect(response).to have_http_status(200)
     end
+
+    it "has a user_id" do 
+      
+    end 
   end
 
   describe "You should be able to successfully create a new post" do
