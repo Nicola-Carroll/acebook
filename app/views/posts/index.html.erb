@@ -11,7 +11,8 @@
   <p><%= post.message %></p>
 <% end %>
 
-<!--
-<%= session[:username].inspect %>
-<%= @user_id %>
--->
+<%= "You are currently logged in as #{current_user.username}" %>
+
+<%= link_to 'Logout', logout_path, method: :delete %>
+
+
