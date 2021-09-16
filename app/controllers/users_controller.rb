@@ -5,10 +5,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-
-    puts "did user save? #{@user.save}"
     if @user.save
-      redirect_to users_url, notice: 'User created :D'
+      redirect_to '\login', notice: 'User created :D'
     else
       render 'new'
     end

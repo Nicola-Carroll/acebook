@@ -4,10 +4,6 @@ require 'helper_methods'
 RSpec.describe User, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
 
-  it 'is empty to start' do
-    assert_empty User.all
-  end
-
   it 'can create a user' do
     user = add_new_sample_user
     assert user.save
