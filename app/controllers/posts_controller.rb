@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     @new_post = Post.create(post_params)
     redirect_to '/posts'
-  end
+  eçnd
   
   private
 

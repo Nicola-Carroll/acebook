@@ -7,7 +7,7 @@
 <% end %>
 
 <% @list_posts.each do |post| %>
-  <p><%= post.user_id %></p>
+  <p><%= User.find(post.user_id).username %></p>
   <p><%= post.message %></p>
 <% end %>
 
