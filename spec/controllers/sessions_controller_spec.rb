@@ -28,4 +28,20 @@ RSpec.describe SessionsController, type: :controller do
       }.to raise_error
     end
   end
+
+  describe 'DELETE / logout' do
+    it 'logs out and redirects to login' do
+      add_new_sample_user
+      session[:user_id] = User.last.id
+      delete :destroy
+      expect(response).to redirect_to(login_path)
+    end
+
+    it 'doesnt store sessions' do
+      add_new_sample_user
+      session[:user_id] = User.last.id
+      delete :destroy
+      expect(session[:user_id]).to be_nil
+    end
+  end
 end

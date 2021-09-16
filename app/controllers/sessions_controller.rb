@@ -8,9 +8,14 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to posts_url
     else
-      redirect_to '/login'
+      redirect_to login_path
     end
   end
 
   def login; end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to login_path, notice: 'Logged out'
+  end
 end
