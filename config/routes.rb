@@ -11,11 +11,6 @@ Rails
 
     get 'signup', to: 'users#new'
     post 'signup', to: 'users#create'
-    
-    # not needed but useful for understanding
-    # get 'posts' => "posts#index"
-    # post 'create' =>  "posts#create"
-end
- 
-  
 
+    root to: 'users#new'
+  end
