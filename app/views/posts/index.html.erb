@@ -1,14 +1,17 @@
 <%= form_for @new_post do |form| %>
   <%= form.label :message %>
   <%= form.text_field :message %>
-  <%#= form.label :user_id %>
-  <%#= form.text_field :user_id %><br>
+  <%= form.hidden_field :user_id, value: @user_id%>
+  <br>
   <%= form.submit "Submit" %>
 <% end %>
 
 <% @list_posts.each do |post| %>
+  <p><%= post.user_id %></p>
   <p><%= post.message %></p>
 <% end %>
 
-<%= session[:user_id] %>
-
+<!--
+<%= session[:username].inspect %>
+<%= @user_id %>
+-->
