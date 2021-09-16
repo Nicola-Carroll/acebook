@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      redirect_to '\login', notice: 'User created :D'
+      redirect_to login_path, notice: 'User created :D'
     else
       render 'new'
     end
