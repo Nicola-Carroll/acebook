@@ -9,5 +9,11 @@
 <% @list_posts.each do |post| %>
   <p><%= User.find(post.user_id).username %></p>
   <p><%= post.message %></p>
+  <%= link_to 'Like', post, method: 'patch' %>
+  <% if post.likes > 0 %>
+    Likes: <%= post.likes %>
+  <br>
+  <% end %>
+  <br>
   <%= link_to 'Comments', post_path(post)%>
 <% end %>

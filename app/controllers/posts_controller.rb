@@ -10,9 +10,17 @@ class PostsController < ApplicationController
     redirect_to '/posts'
   end
 
+  def update
+    @post = Post.find(params[:id])
+    @post.likes += 1
+    @post.save
+    redirect_to '/posts'
+  end
+
   def show
     @post = Post.find(params[:id])
   end
+
 
   private
 

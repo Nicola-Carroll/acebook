@@ -9,7 +9,7 @@
   <%= comment.message %>
   <%= link_to 'Like', [comment.post, comment], method: 'patch' %>
   <br>
-  <% if comment.likes %>
+  <% if comment.likes > 0 %>
   Likes: <%= comment.likes %>
   <br>
   <% end %>
