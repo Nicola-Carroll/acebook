@@ -9,10 +9,6 @@ class PostsController < ApplicationController
     @new_post = Post.create(post_params)
     redirect_to '/posts'
   end
-  
-  def show
-    @post = Post.find(params[:id])
-  end
 
   def show
     @post = Post.find(params[:id])
