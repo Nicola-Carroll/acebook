@@ -1,21 +1,11 @@
-Rails
-  .application
-  .routes
-  .draw do
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :posts do
+    resources :comments
+  end
 
-    resources :posts
-
-    get 'login', to: 'sessions#new'
-    post 'login', to: 'sessions#create'
-
-    get 'signup', to: 'users#new'
-    post 'signup', to: 'users#create'
-    
-    # not needed but useful for understanding
-    # get 'posts' => "posts#index"
-    # post 'create' =>  "posts#create"
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  get 'signup', to: 'users#new'
+  post 'signup', to: 'users#create'
 end
- 
-  
-
