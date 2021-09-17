@@ -1,20 +1,21 @@
 class PostsController < ApplicationController
-  def new
-    @post = Post.new
+
+  def index
+    # this method is going to need parameters passed to it
+    @new_post = Post.new
+    @list_posts = Post.all.order(created_at: :desc)
   end
 
   def create
-    @post = Post.create(post_params)
-    redirect_to posts_url
+    @new_post = Post.create(post_params)
+    redirect_to '/posts'
   end
-
-  def index
-    @posts = Post.all
-  end
-
+  
   private
 
   def post_params
-    params.require(:post).permit(:message)
+    params.require(:post).permit(:message, :user_id)
   end
-end
+
+
+end 
