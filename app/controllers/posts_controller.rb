@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     # this method is going to need parameters passed to it
     @new_post = Post.new
@@ -11,11 +10,13 @@ class PostsController < ApplicationController
     redirect_to '/posts'
   end
   
+  def show
+    @post = Post.find(params[:id])
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:message, :user_id)
   end
-
-
 end 

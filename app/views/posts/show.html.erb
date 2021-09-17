@@ -1,0 +1,26 @@
+<p><%= @post.message %></p>
+  <p>
+  <strong>Comments:</strong>
+  <br><br>
+  <% @post.comments.each do |comment| %>
+  <%= User.find(comment.user_id).username %>:
+  <br>
+  <%= comment.message %>
+  <%= link_to 'Like', [comment.post, comment], method: 'patch' %>
+  <br>
+  <% if comment.likes %>
+  Likes: <%= comment.likes %>
+  <br>
+  <% end %>
+  <br>
+  <% end %>
+  </p>
+
+<div>
+<%= form_for([@post, @post.comments.build]) do |form| %>
+  <%= form.label 'Add comment:' %>
+  <%= form.text_field :message %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.submit "Submit" %>
+<% end %>
+</div>
