@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
   end
 
   def authorised
+    flash[:alert] = "Please signup or login to view this page"
     redirect_to root_path unless logged_in?
+    # also raise flash message to say login or signup
  end
 end

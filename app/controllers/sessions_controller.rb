@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorised, only: [:new, :create]
+  skip_before_action :authorised
 
   def new; end
 
@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to posts_url, notice: "Logged in successfully"
+      redirect_to posts_url
     else
       flash[:alert] = "Invalid email or password"   
       redirect_to login_path
@@ -18,8 +18,9 @@ class SessionsController < ApplicationController
   def login; end
 
   def destroy
+    flash.clear
     session[:user_id] = nil
-    redirect_to login_path, notice: 'Logged out'
+    redirect_to login_path
   end
 
 end
