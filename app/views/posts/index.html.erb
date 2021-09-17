@@ -1,3 +1,4 @@
+<%= flash[:notice]%>
 <%= form_for @new_post do |form| %>
   <%= form.label :message %>
   <%= form.text_field :message %>
@@ -10,8 +11,3 @@
   <p><%= User.find(post.user_id).username %></p>
   <p style="color:purple;margin-left:40px"><%= post.message %></p>
 <% end %>
-
-<!--
-<%= session[:username].inspect %>
-<%= @user_id %>
--->
