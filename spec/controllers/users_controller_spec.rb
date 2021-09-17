@@ -24,6 +24,22 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to redirect_to(login_path)
     end
 
+    it 'alerts user with \'Signed up successfully! Please login\'' do
+      post :create,
+           params: {
+             user: {
+               first_name: 'Tom',
+               last_name: 'Balm',
+               username: 'Tommy',
+               email: 'tom@example.com',
+               password: 'griltheAnim4lz'
+             }
+           }
+      expect(flash[:notice]).to match('Signed up successfully! Please login')
+    end
+  end
+
+  describe 'REDIRECT /' do
     it 'renders if user is invalid' do
       post :create,
            params: {

@@ -10,8 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to posts_url, notice: "Logged in successfully"
     else
-      flash[:alert] = "Invalid email or password"
-      p flash.now
+      flash[:alert] = "Invalid email or password"   
       redirect_to login_path
     end
   end

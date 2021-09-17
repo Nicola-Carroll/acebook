@@ -23,6 +23,11 @@ RSpec.describe SessionsController, type: :controller do
       expect(response).to have_http_status(302)
     end
 
+    it 'alerts user if wrong password or email given' do
+      post :create, params: { email: '', password: '' }
+      expect(flash[:alert]).to match('Invalid email or password')
+    end
+
     it 'reidrects to login invalid login' do
       post :create, params: { email: '', password: '' }
       expect(response).to redirect_to(login_path)
