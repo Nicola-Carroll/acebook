@@ -8,8 +8,10 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to posts_url
+      redirect_to posts_url, notice: "Logged in successfully"
     else
+      flash[:alert] = "Invalid email or password"
+      p flash.now
       redirect_to login_path
     end
   end

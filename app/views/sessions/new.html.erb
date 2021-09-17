@@ -1,5 +1,13 @@
 <h1>Login</h1>
 
+<% if !!flash[:alert] %>
+  <% flash.each do |k, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
+
 <%= form_tag login_path do %>
   <div>
     <%= label_tag :email %>
