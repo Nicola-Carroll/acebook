@@ -4,11 +4,10 @@
   <strong>Comments:</strong>
   <br><br>
   <% @post.comments.each do |comment| %>
-  <%= User.find(comment.user_id).first_name %>
-  <%= User.find(comment.user_id).last_name %>:
+  <%= User.find(comment.user_id).username %>:
   <br>
   <%= comment.message %>
-  <%= link_to 'Like', post_comment_path(comment), method: 'patch' %>
+  <%= link_to 'Like', [comment.post, comment], method: 'patch' %>
   <br>
   <% if comment.likes %>
   Likes: <%= comment.likes %>
