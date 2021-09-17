@@ -3,7 +3,6 @@ class PostsController < ApplicationController
   def index
     # this method is going to need parameters passed to it
     @new_post = Post.new
-    @user_id = session[:user_id]
     @list_posts = Post.all.order(created_at: :desc)
   end
 
@@ -19,4 +18,4 @@ class PostsController < ApplicationController
   end
 
 
-end
+end 
