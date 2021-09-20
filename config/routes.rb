@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   post 'signup', to: 'users#create'
 
   root to: 'users#new'
+
+  get '/', to: 'users#new'
 end
