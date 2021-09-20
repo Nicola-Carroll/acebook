@@ -38,11 +38,11 @@
     <div>
       <%= form.submit %>
     </div>
-  <% end %>
+  <% end %><br>
 
-  <%= form_for @user, url: login_path do |form| %>
-    <div class='login'>
-      <%= form.submit "Login" %>
-    </div>
-  <% end %>
+  <div>
+    Already have an account? <%= link_to "Login", login_path%>
+  </div>
+
+
 

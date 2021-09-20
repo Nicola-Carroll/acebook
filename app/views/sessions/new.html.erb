@@ -2,13 +2,14 @@
 
 <%= flash[:notice] %>
 
-<% if !!flash[:alert] %>
+<% if !!flash[:alert]%>
   <% flash.each do |k, msg| %>
     <div>
       <%= msg %>
     </div>
   <% end %>
 <% end %>
+
 
 <%= form_tag login_path do %>
   <div>
