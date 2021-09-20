@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
+
+  root to: 'users#new'
 end
