@@ -17,6 +17,14 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.before(:suite) do\
+    con = PG.connect :dbname => 'pgapp_test'
+    con.exec 'TRUNCATE TABLE users, posts, comments RESTART IDENTITY' # find a rails way to do this?
+    Rails.application.load_seed
+  end
+end
+
+RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
