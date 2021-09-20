@@ -17,3 +17,8 @@
   <br>
   <%= link_to 'Comments', post_path(post)%>
 <% end %>
+
+
+<%= "You are currently logged in as #{current_user.username}" %>
+
+<%= link_to 'Logout', logout_path, method: :delete %>
