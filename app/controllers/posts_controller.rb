@@ -7,7 +7,12 @@ class PostsController < ApplicationController
 
   def create
     @new_post = Post.create(post_params)
-    redirect_to '/posts'
+    if @new_post.save
+      redirect_to '\posts', notice: 'Post successful'
+    else
+      flash[:alert] = 'Post was not successful'
+      render 'index'
+    end
   end
 
   def update
@@ -25,6 +30,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:message, :user_id)
+    params.require(:post).permit(:message, :user_id, :post_image)
   end
 end 
