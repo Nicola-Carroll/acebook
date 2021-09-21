@@ -27,16 +27,19 @@ users = [
     last_name: 'Attenborough'
   }]
 
-  posts = [
-    {
-      message: "Hello Graeme",
-      user_id: 1
-    },
-    {
-      message: "Hello Apps",
-      user_id: 2
-    }
-  ]
-
 users.each { |user| User.create(user) }
+
+posts = [
+    
+  { user_id: 1,
+    message: "First post",
+  },
+  { user_id: 2,
+    message: "Second post",
+  },
+  { user_id: 3,
+    message: "Third post",
+  }]
+
 posts.each { |post| Post.create(post) }
+ 

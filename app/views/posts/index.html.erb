@@ -1,13 +1,20 @@
-<%= flash[:notice]%>
-<%= form_for @new_post do |form| %>
-  <%= form.label :message %>
-  <%= form.text_field :message %>
-  <%= form.hidden_field :user_id, value: current_user.id%>
-  <br>
-  <%= form.submit "Submit" %>
-<% end %>
-
 <% @list_posts.each do |post| %>
   <p><%= User.find(post.user_id).username %></p>
-  <p style="color:purple;margin-left:40px"><%= post.message %></p>
+  <p><%= post.message %></p>
+  <%= link_to image_tag('likebutton.png', width: 14, height: 14), post, method: 'patch' %>
+  <% if post.likes > 0 %>
+    + <%= post.likes %>
+  <% elsif post.likes == 0 %>
+    <%= post.likes %>
+  <% elsif post.likes < 0 %>
+   - <%= post.likes %>
+  <br>
+  <% end %>
+  <br>
+  <%= link_to 'Comments', post_path(post)%>
 <% end %>
+
+
+<%= "You are currently logged in as #{current_user.username}" %>
+
+<%= link_to 'Logout', logout_path, method: :delete %>
