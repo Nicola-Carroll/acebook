@@ -1,32 +1,50 @@
 @font-face {
-  font-family: 'The Queens Gambit';
+  font-family: 'CFParis';
+  src: url('CFParisOldStyle-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Queen Grunge';
+  src: url('QueenInlineGrunge.ttf');
+}
+
+@font-face {
+  font-family: 'Queens Gambit';
   src: url('Queens_Gambit.ttf');
 }
 
-// body {
-// background-image: url('../public/images/JF-Ace-Spades.jpeg');
-/* font-family: aileron, sans-serif; */
-/* font-family: courier-std, monospace; */
-// }
+@font-face {
+  font-family: 'Retrograpth';
+  src: url('RetrographDemo.ttf');
+}
 
-.title {
-  // font-size: 80px;
-  /* font-family: courier-std, monospace; */
-  font-family: 'The Queens Gambit';
-  font-weight: 200;
-  height: 4vh;
-  color: white;
+@font-face {
+  font-family: 'Retrospective';
+  src: url('Retrospective.ttf');
+}
+
+body {
+  background-image: url('wp3.jpeg');
+  /* font-family: aileron, sans-serif; */
+  font-family: 'Queens Gambit';
+}
+
+h1 {
+  font-family: 'Retrospective';
+  font-weight: 400;
+  font-size: 40px;
+  height: 2vh;
+  color: black;
 }
 
 a,
 h2,
 h3,
 h5 {
-  text-align: center;
+  /* text-align: center; */
   font-style: normal;
-  font-family: 'The Queens Gambit';
-  font-style: normal;
-  color: white;
+  font-family: 'Queens Gambit';
+  color: black;
   font-weight: 200;
   height: 1vh;
 }
@@ -34,12 +52,10 @@ h5 {
 h4 {
   text-align: center;
   font-style: normal;
-  // font-family: 'Orbitron', sans-serif;
-  font-style: normal;
   margin-top: 10%;
   margin-right: 10%;
   margin-left: 10%;
-  color: white;
+  color: black;
   font-weight: 200;
   height: 1vh;
 }
@@ -60,13 +76,13 @@ h4 {
   border-radius: 30px;
 }
 
-#create_note_box {
-  text-align: center;
+.create_note_box {
+  /* text-align: center; */
   width: 35%;
   margin: 0 2%;
   position: absolute;
   height: 30vh;
-  background-color: rgb(0, 51, 51);
+  /* background-color: rgb(0, 51, 51); */
   border-radius: 30px;
   float: left;
   /* overflow: scroll; */
@@ -79,7 +95,7 @@ h4 {
   height: 40vh;
   position: absolute;
   bottom: 0;
-  background-color: rgb(0, 51, 51);
+  /* background-color: rgb(0, 51, 51); */
   border-radius: 30px;
 }
 
@@ -88,7 +104,7 @@ h4 {
   width: 45%;
   margin: 0 2%;
   height: 77vh;
-  // background-image: url('images/space7.jpg');
+  /* background-image: url('images/space7.jpg'); */
   border-radius: 30px;
   float: right;
 }
@@ -98,39 +114,75 @@ h4 {
   height: 4vh;
   width: 120px;
   margin: 35% auto;
-  // font-family: 'Orbitron', sans-serif;
-  // background-image: url('images/space1.jpg');
+  /* font-family: 'Orbitron', sans-serif;
+  // background-image: url('images/space1.jpg');*/
   font-weight: 200;
-  color: white;
+  color: black;
   border: 1px solid #ccd9ff;
 }
 
-button {
+input[type='submit'] {
   border-radius: 8px;
-  height: 4vh;
-  width: 120px;
+  height: 6vh;
+  width: 100px;
   margin: 2% auto;
-  // font-family: 'Orbitron', sans-serif;
-  // background-image: url('images/space1.jpg');
+  font-family: 'Retrospective';
+  background-image: url('download.jpg');
   font-weight: 200;
-  color: white;
-  border: 1px solid #ccd9ff;
+  color: #ff471a;
+  border: 2px solid #e6c300;
 }
 
-button:hover {
+input[type='submit']:hover {
   opacity: 0.6;
 }
 
-textarea {
+/* #user_email, */
+/* #user_password */
+form input[type='text'],
+form input[type='password'] {
+  border-radius: 8px;
+  font-weight: 200;
+  width: 220px;
+  margin: 1% auto;
+  font-family: 'Retrospective';
+  color: black;
+  background-color: #fff9e6;
+  outline: #ff471a;
+  border: 2px solid #e6c300;
+}
+
+.textarea {
   border-radius: 8px;
   height: 8vh;
   width: 250px;
-  margin: 5% auto;
-  color: white;
-  // font-family: 'Orbitron', sans-serif;
+  margin: 0% auto;
+  font-family: 'Retrospective';
+  color: black;
   font-weight: 200;
+  bottom: 10%;
   /* background-image: url('images/space6-1.jpg'); */
   /* background-image: url('images/space11.jpg'); */
-  // background-image: url('images/space5-3.jpg');
-  border: 1px solid #ccd9ff;
+  outline: #ff471a;
+  border: 1px solid #e6c300;
+}
+
+.alert {
+  padding: 20px;
+  width: 550px;
+  border-radius: 8px;
+  background-color: #fff9e6;
+  border: 2px solid #e6c300;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.notice {
+  padding: 20px;
+  width: 550px;
+  border-radius: 8px;
+  background-color: #fff9e6;
+  border: 2px solid #e6c300;
+  color: white;
+  margin-bottom: 15px;
 }
