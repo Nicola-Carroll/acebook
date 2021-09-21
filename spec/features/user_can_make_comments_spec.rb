@@ -1,13 +1,12 @@
 require 'rails_helper'
-
+require 'helper_methods'
 RSpec.feature "Comments", type: :feature do
     scenario "Can submit posts and view them" do
-      visit "http://localhost:3000/login" # need to change default domain in capybara/rspec
-      fill_in "email", with: "joebloggs@example.com"
-      fill_in "password", with: "dQlRIF"
-      click_button "Login"
+      add_new_sample_user
+      login_user
+      visit "/posts/"
       first("a").click
-      fill_in "comment_message", with: "Hello, world!"
+      fill_in "Add comment:", with: "Hello, world!"
       click_button "Submit"
       expect(page).to have_content("Hello, world!")
     end
