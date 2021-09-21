@@ -12,4 +12,6 @@ class User < ApplicationRecord
               with: /\A[^@\s]+@[^@\s]+\z/,
               message: 'Must be a valid email address'
             }
+  validates :profile_image, content_type: ['image/png', 'image/jpg', 'image/jpeg'],
+            size: { less_than: 5.megabytes , message: 'Uploaded image size is too big' }
 end

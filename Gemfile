@@ -29,7 +29,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+# Validations of Images for Active Storage (presence)
+gem 'active_storage_validations', '~> 0.9.5'
 # bcrypt() is a sophisticated and secure hash algorithm designed by The OpenBSD project for hashing passwords. The bcrypt Ruby gem provides a simple wrapper for safely handling passwords
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 

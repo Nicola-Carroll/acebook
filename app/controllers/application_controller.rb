@@ -20,4 +20,5 @@ class ApplicationController < ActionController::Base
       'default_avatar.jpg'
     end
   end
+
 end

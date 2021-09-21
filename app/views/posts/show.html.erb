@@ -2,13 +2,12 @@
   <p><%= @post.message %></p>
   <p>
   <strong>Comments:</strong>
-  <br><br>
+  <br>
   <% @post.comments.each do |comment| %>
   <div class='profile-image'>
-  <%= image_tag(user_avatar(comment.user_id), width: 200) %>
+  <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img') %>
+  <%= User.find(comment.user_id).username %>
   </div>
-  <%= User.find(comment.user_id).username %>:
-  <br>
   <%= comment.message %>
   <%= link_to 'Like', [comment.post, comment], method: 'patch' %>
   <br>
