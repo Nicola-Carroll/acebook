@@ -30,3 +30,9 @@
 <%= "You are currently logged in as #{current_user.username}" %>
 
 <%= link_to 'Logout', logout_path, method: :delete %>
+
+<br>
+
+<h1>Hello, Rails!</h1>
+<button id="greet-user-button">Hello!</button>
+<%= javascript_pack_tag 'postLikes'%>
