@@ -7,7 +7,7 @@
   <%= User.find(comment.user_id).username %>:
   <br>
   <%= comment.message %>
-  <%= link_to 'Like', [comment.post, comment], method: 'patch' %>
+  <%= link_to image_tag('likebutton.png', width: 14, height: 14), [comment.post, comment], method: 'patch' %>
   <br>
   <% if comment.likes > 0 %>
   Likes: <%= comment.likes %>
