@@ -9,6 +9,9 @@
 <% end %>
 
 <% @list_posts.each do |post| %>
+  <div class='profile-image'>
+  <%= image_tag(user_avatar(post.user_id), width: 200) %>
+  </div>
   <p><%= User.find(post.user_id).username %></p>
   <p><%= post.message %></p>
   <%= image_tag(post.post_image, width: 200) if post.post_image.attached? %>

@@ -4,6 +4,9 @@
   <strong>Comments:</strong>
   <br><br>
   <% @post.comments.each do |comment| %>
+  <div class='profile-image'>
+  <%= image_tag(user_avatar(comment.user_id), width: 200) %>
+  </div>
   <%= User.find(comment.user_id).username %>:
   <br>
   <%= comment.message %>

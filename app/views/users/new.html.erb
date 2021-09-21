@@ -30,6 +30,10 @@
       <%= form.label :email_confirmation, 'Confirm Email'%>:
       <%= form.text_field :email_confirmation, :size => 40 %>
     </div>
+      <div>
+      <%= form.label :profile_image %>
+      <%= form.file_field :profile_image %>
+      </div>
     <div>
       <%= form.submit %>
     </div>
