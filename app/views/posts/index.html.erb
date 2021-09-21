@@ -1,11 +1,3 @@
-<%= form_for @new_post do |form| %>
-  <%= form.label :message %>
-  <%= form.text_field :message %>
-  <%= form.hidden_field :user_id, value: current_user.id%>
-  <br>
-  <%= form.submit "Submit" %>
-<% end %>
-
 <% @list_posts.each do |post| %>
   <p><%= User.find(post.user_id).username %></p>
   <p><%= post.message %></p>
