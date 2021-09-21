@@ -182,3 +182,23 @@ form input[type='password'] {
   outline: #ff471a;
   border: 1px solid #e6c300;
 }
+
+.alert {
+  padding: 20px;
+  width: 550px;
+  border-radius: 8px;
+  background-color: #fff9e6;
+  border: 2px solid #e6c300;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.notice {
+  padding: 20px;
+  width: 550px;
+  border-radius: 8px;
+  background-color: #fff9e6;
+  border: 2px solid #e6c300;
+  color: white;
+  margin-bottom: 15px;
+}
