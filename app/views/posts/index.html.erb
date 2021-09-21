@@ -11,7 +11,11 @@
   <p><%= post.message %></p>
   <%= link_to 'Like', post, method: 'patch' %>
   <% if post.likes > 0 %>
-    Likes: <%= post.likes %>
+    + <%= post.likes %>
+  <% elsif post.likes == 0 %>
+    <%= post.likes %>
+  <% elsif post.likes < 0 %>
+   - <%= post.likes %>
   <br>
   <% end %>
   <br>
