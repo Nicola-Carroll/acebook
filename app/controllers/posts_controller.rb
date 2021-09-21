@@ -10,7 +10,11 @@ class PostsController < ApplicationController
   end 
 
   def create
-    @new_post = Post.create(post_params)
+    if (params[:post][:message].strip == "")
+      flash[:notice] = 'Canny submit empty post ya numpty'
+    else
+      @new_post = Post.create(post_params)
+    end 
     redirect_to posts_path
   end
 
@@ -18,7 +22,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.likes += 1
     @post.save
-    redirect_to '/posts'
+    redirect_to posts_path
   end
 
   def show
@@ -32,3 +36,4 @@ class PostsController < ApplicationController
     params.require(:post).permit(:message, :user_id)
   end
 end 
+
