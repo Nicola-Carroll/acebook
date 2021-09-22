@@ -1,7 +1,11 @@
 class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(params[:comment].permit(:message, :user_id))
+    if (params[:comment][:message].strip == "")
+      flash[:emptycomment] = 'Cannae submit empty comment ya numpty'
+    else
+      @comment = @post.comments.create(params[:comment].permit(:message, :user_id))
+    end
     redirect_to post_path(@post)
   end
 

@@ -11,15 +11,16 @@ class PostsController < ApplicationController
 
   def create
     if (params[:post][:message].strip == "")
-      redirect_to new_post_path, notice: 'Canny submit empty post ya numpty'
+      flash[:emptymessage] = 'Cannae submit empty post ya numpty'
+      redirect_to new_post_path
     else
       @new_post = Post.create(post_params)
       if @new_post.save
-        redirect_to posts_path, notice: 'Post successful'
+        redirect_to posts_path
       else
         redirect_to new_post_path, notice: 'Post was not successful'
       end
-    end
+    end 
   end
 
   def update
