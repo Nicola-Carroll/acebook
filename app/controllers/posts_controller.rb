@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     else
       @new_post = Post.create(post_params)
       if @new_post.save
-        redirect_to posts_path, notice: 'Post successful'
+        redirect_to posts_path
       else
         redirect_to new_post_path, notice: 'Post was not successful'
       end
