@@ -4,7 +4,7 @@
   </div>
   <div>
     <%= form.label :post_image %>
-    <%= form.file_field :post_image %>
+    <%= form.file_field :post_image, :id => "file-button" %>
   </div>
   <%= form.hidden_field :user_id, value: current_user.id %>
   <%= form.submit "Submit" %>

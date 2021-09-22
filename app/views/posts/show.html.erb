@@ -3,9 +3,11 @@
 <section class='comment-box'>
   <strong>Comments:</strong>
   <% @post.comments.each do |comment| %>
+  <hr>
   <div class='profile-image'>
-    <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img') %>
+    <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
     <%= User.find(comment.user_id).username %>
+    Posted <%= time_ago_in_words(post.created_at) %>
   </div>
   <%= emojify(comment.message) %>
   <%= link_to image_tag('JF-Queen-Heart.png', width: 50), [comment.post, comment], method: 'patch' %>
@@ -21,7 +23,7 @@
 
 <div>
   <%= form_for([@post, @post.comments.build]) do |form| %>
-    <%= form.text_field :message, placeholder: 'Add comment...' %>
+    <%= form.text_field :message, placeholder: 'Write a comment...' %>
     <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.submit "Submit" %>
   <% end %>

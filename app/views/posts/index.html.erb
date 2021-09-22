@@ -1,25 +1,68 @@
 <%= "You are currently logged in as #{current_user.username}" %><br>
-<%= link_to 'Logout', logout_path, method: :delete %>
+<%= image_tag(current_user.profile_image, :class => 'profile-img' ) %>
 
 <section class='feed-box'>
   <% @list_posts.each do |post| %>
-    <section class='post-box'>
-      <%= image_tag(user_avatar(post.user_id), :class => 'profile-img' ) %>
-      <%= User.find(post.user_id).username %>
-      Posted <%= time_ago_in_words(post.created_at) %>
-      <%= emojify(post.message) %>
-      <%= image_tag(post.post_image) if post.post_image.attached? %>
-      <%= link_to image_tag('JF-Queen-Heart.png', width: 50), post, method: 'patch' %>
+    <section class='feed-post-box'>
       <div>
-        <% if post.likes > 0 %>
-          + <%= post.likes %>
-        <% elsif post.likes == 0 %>
-          <%= post.likes %>
-        <% elsif post.likes < 0 %>
-          - <%= post.likes %>
-        <% end %>
+      <h3>
+        <%= image_tag(user_avatar(post.user_id), :class => 'profile-img' ) %>
+        <%= User.find(post.user_id).username %>
+      </h3>
+        <h6 id='time'>Posted <%= time_ago_in_words(post.created_at) %></h6>
       </div>
+      <hr id='post-hr'>
+      <%= emojify(post.message) %>
+      <%= image_tag((post.post_image), :class => 'post-img' ) if post.post_image.attached? %><br>
       <%= link_to 'Comments', post_path(post)%>
+  
+        <div class='comment-box' tabindex="1">
+          <div id='post-likes'>
+            <%= link_to image_tag('JF-Queen-Heart.png', :class => 'post-heart'), post, method: 'patch' %>
+            <% if post.likes > 0 %>
+            <p id='post-♥️' class='+'>♥️<%= post.likes %></p>
+            <% elsif post.likes == 0 %>
+            <p id='post-♥️' class='0'>♥️<%= post.likes %></p>
+            <% elsif post.likes < 0 %>
+            <p id='post-♥️' class='-'>♥️<%= post.likes %></p>
+            <% end %>
+            <p id='comment-count'><%= post.comments.count %> Comments 💬</p>
+            <p id='heart-the-post'>Heart post</p>
+          </div>
+          
+        </div>
+        <div class="hiddendiv">
+          <strong>Comments:</strong><br>
+          <% ('if comments are empty ask didplay no comments yer') %>
+          <% post.comments.each do |comment| %>
+          <h6 id='time'>Posted <%= time_ago_in_words(post.created_at) %></h6>
+          <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
+          <div id='comment-message'>
+            <%= emojify(comment.message) %>
+            <%= link_to image_tag('JF-Queen-Heart.png', :class => 'comment-heart'), [comment.post, comment], method: 'patch' %>
+          </div>
+            <div>
+              <% if comment.likes > 0 %>
+              <p id='comment-♥️' class='+'>♥️<%= comment.likes %></p>
+              <% elsif comment.likes == 0 %>
+              <p id='comment-♥️' class='0'>♥️<%= comment.likes %></p>
+              <% elsif comment.likes < 0 %>
+              <p id='comment-♥️' class='-'>♥️<%= comment.likes %></p>
+              <% end %>
+            </div>
+          <% end %>
+
+          <div>
+            <%= form_for([post, post.comments.build]) do |form| %>
+              <%= form.text_field :message, placeholder: 'Write a comment...' %>
+              <%= form.hidden_field :user_id, value: current_user.id %>
+              <%= form.submit "Submit" %>
+            <% end %>
+          <div>
+        
+        </div>
+      </div>
+      
     </section>
   <% end %>
 </section>
