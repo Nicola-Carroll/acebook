@@ -16,16 +16,10 @@
   <br>
   <% end %>
   <br>
-  <%= link_to "Delete", post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"btn btn-danger"%> 
-  <br>
-  <div class="comment">
   <%= link_to 'Comments', post_path(post)%>
-  </div>
 <% end %>
 
-<br>
-<br>
-<br>
-<br>
+
 <%= "You are currently logged in as #{current_user.username}" %>
 
+<%= link_to 'Logout', logout_path, method: :delete %>

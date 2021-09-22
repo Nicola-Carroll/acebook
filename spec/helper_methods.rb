@@ -7,10 +7,3 @@ def add_new_sample_user
     password: 'griltheAnim4lz'
   )
 end
-
-def login_user
-  visit login_path
-  fill_in :password, with: 'griltheAnim4lz'
-  fill_in :email, with: 'hilly@example.com'
-  click_button 'Login'
-end
