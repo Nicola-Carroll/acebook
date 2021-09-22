@@ -11,7 +11,8 @@ class PostsController < ApplicationController
 
   def create
     if (params[:post][:message].strip == "") || (params[:post][:message] == "")
-      flash[:emptymessage]
+      flash[:emptymessage] = 'Cannae submit empty post ya numpty'
+      redirect_to '/posts/new'
     else
       @new_post = Post.create(post_params)
       redirect_to posts_path
