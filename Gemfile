@@ -37,7 +37,8 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 
 # High-level wrapper for processing images for the web with ImageMagick or libvips.
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
-
+# Character information and metadata for standard and custom emoji
+gem 'gemoji', '~> 3.0', '>= 3.0.1'
 # Official AWS Ruby gem for Amazon Simple Storage Service (Amazon S3). This gem is part of the AWS SDK for Ruby.
 gem "aws-sdk-s3", require: false
 
