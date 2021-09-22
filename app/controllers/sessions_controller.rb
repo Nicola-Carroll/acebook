@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to posts_url
     else
-      flash[:alert] = "Invalid email or password"   
+      flash[:invalid] = "Invalid email or password"   
       redirect_to login_path
     end
   end
@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
     flash.clear
     session[:user_id] = nil
     redirect_to login_path
+    flash[:loggedout] = "Successfully logged out"
   end
 
 end
