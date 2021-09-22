@@ -50,13 +50,5 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
-  describe "user is not signed in" do
-
-    it 'alerts please sign in' do
-      session[:user_id] = nil
-      get :index
-      expect(flash[:alert]).to match('Please signup or login to view this page')
-    end
-
-  end
+  
 end

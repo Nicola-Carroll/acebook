@@ -5,7 +5,7 @@ RSpec.feature "Comments", type: :feature do
       add_new_sample_user
       login_user
       visit "/posts/"
-      first(".comment").click
+      first(".comment").click_link('Comments')
       fill_in 'Add comment:', with: "Hello, world!"
       click_button "Submit"
       expect(page).to have_content("Hello, world!")

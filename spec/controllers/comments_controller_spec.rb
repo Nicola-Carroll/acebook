@@ -11,7 +11,7 @@ RSpec.describe CommentsController, type: :controller do
     it "creates a comment" do
       session[:user_id] = 1
       post :create, params: { comment: { message: "Hello, world!", user_id: 1}, post_id: 1 }
-      expect(Comment.find_by(message: "Hello, world!")).to be
+      expect(Comment.find_by(message: "Hello, world!")).to be 
     end
   end
 end

@@ -21,12 +21,22 @@ RSpec.describe PostsController, type: :controller do
   
     it "deletes a post" do 
       session[:user_id] = 1
+      p post1
       delete :destroy, 
       params: {
-        id: 4
+        id: 5
       }
-      expect(Post.find_by(id: 4)).to be nil
+      expect(Post.find_by(id: 5)).to be nil
     end 
-end 
+end
+  describe "user is not signed in" do
+
+    it 'alerts please sign in' do
+      session[:user_id] = nil
+      get :index
+      expect(flash[:alert]).to match('Please signup or login to view this page')
+    end
+
+end
 
 end
