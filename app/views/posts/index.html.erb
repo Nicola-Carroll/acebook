@@ -1,17 +1,3 @@
-<%= form_for @new_post do |form| %>
-  <%= form.label :message %>
-  <%= form.text_field :message %>
-  <%= form.label :post_image %>
-  <%= form.file_field :post_image %>
-  <%= form.hidden_field :user_id, value: current_user.id%>
-  <br>
-  <%= form.submit "Submit" %>
-<% end %>
-
-<% @new_post.errors.full_messages.each do |msg| %>
-  <li> <%= msg %></li>
-<% end %>
-
 <% @list_posts.each do |post| %>
   <div class='profile-image'>
     <%= image_tag(user_avatar(post.user_id), :class => 'profile-img' ) %>
