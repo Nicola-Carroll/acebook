@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def create
     @new_post = Post.create(post_params)
     if @new_post.save
-      redirect_to '\posts', notice: 'Post successful'
+      redirect_to posts_path, notice: 'Post successful'
     else
       flash[:alert] = 'Post was not successful'
       render 'index'
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.likes += 1
     @post.save
-    redirect_to '/posts'
+    redirect_to posts_path
   end
 
   def show
