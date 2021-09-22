@@ -12,7 +12,7 @@
 
 
 
-  
+
   <%= link_to image_tag('likebutton.png', width: 14, height: 14), post, method: 'patch' %>
   <p><%= button_tag "Like", type: 'button', id: "#{post.id}"%></p>
   <%= link_to 'Like', post, method: 'patch' %>
@@ -33,6 +33,52 @@
    <%= link_to "Comments #{post.comments.size}", post_path(post)%>
 
 <% end %>
+<%# <% @list_posts.each do |post| %>
+<%#   <p><%= User.find(post.user_id).username %>
+<%# </p>
+<%#   <p><%= post.message %>
+<%# </p>
+<%#   <%=
+<%#     link_to 'Like',
+<%#     url_for({controller: "posts", action: "update"}),
+<%#     method: :patch, remote: true,
+<%#     class: 'add-like'
+<%#   %>
+<%#   <%= javascript_tag '$(".add-like").click();' %>
+<%#   <div id=<%="post_likes_#{post.id}"%>
+<%# >
+<%#     <% if post.likes > 0 %>
+<%#     Likes: <%= post.likes %>
+<%#   <% end %>
+<%#   </div>
+<%#   <br>
+<%#   <%= link_to 'Comments', post_path(post)%>
+<%# <% end %>
+
+<% post = Post.find(3) %>
+  <p><%= User.find(post.user_id).username %></p>
+  <p><%= post.message %></p>
+    <%=
+      link_to 'Like',
+      url_for({controller: "posts", action: "update"}),
+      method: :patch, remote: true,
+      class: 'likes-3'
+    %>
+    <%= javascript_tag '$(".likes-3").click();' %>
+  <span id="likes-3">
+    <div id=<%="post_likes_#{post.id}"%>>
+      <% if post.likes > 0 %>
+      Likes: <%= post.likes %>
+    <% end %>
+    </div>
+  </span>
+  <br>
+  <%= link_to 'Comments', post_path(post)%> <br>
+
+
+
+
+
 
 
 <%= "You are currently logged in as #{current_user.username}" %>
@@ -45,3 +91,5 @@
   id: "posts_data",
   data: @list_posts.last.to_json do%>
 <% end %>
+
+<br>

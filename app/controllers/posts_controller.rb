@@ -8,10 +8,10 @@ class PostsController < ApplicationController
 
   def new
     @new_post = Post.new
-  end 
+  end
 
   def create
-    if (params[:post][:message].strip == "")
+    if (params[:post][:message].strip == '')
       flash[:emptymessage] = 'Cannae submit empty post ya numpty'
       redirect_to new_post_path
     else
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
       else
         redirect_to new_post_path, notice: 'Post was not successful'
       end
-    end 
+    end
   end
 
   def update
@@ -33,13 +33,18 @@ class PostsController < ApplicationController
     elsif like
       @post.likes += 1
     end
+    @post = Post.find(3)
+    @post.likes += 1
     @post.save
-    redirect_to posts_path
+    value = 42 # Some expensive database query
+    render js: "$('#likes-3').html('#{value}')"
+    # redirect_to '/posts'
   end
 
   def show
     @post = Post.find(params[:id])
   end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
@@ -51,5 +56,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:message, :user_id, :post_image)
   end
-end 
-
+end
