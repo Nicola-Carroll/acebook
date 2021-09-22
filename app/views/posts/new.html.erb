@@ -1,10 +1,12 @@
 <%= form_for @new_post do |form| %>
-  <%= form.label :message %>
-  <%= form.text_field :message %>
-  <%= form.label :post_image %>
-  <%= form.file_field :post_image %>
-  <%= form.hidden_field :user_id, value: current_user.id%>
-  <br>
+  <div class="field">
+    <%= form.text_area :message, placeholder: 'Your post... 🔥', :id => "mytextarea" %>
+  </div>
+  <div>
+    <%= form.label :post_image %>
+    <%= form.file_field :post_image %>
+  </div>
+  <%= form.hidden_field :user_id, value: current_user.id %>
   <%= form.submit "Submit" %>
 <% end %>
 

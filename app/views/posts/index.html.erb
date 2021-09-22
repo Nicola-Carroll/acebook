@@ -1,40 +1,35 @@
-<% @list_posts.each do |post| %>
-  <div class='profile-image'>
-    <%= image_tag(user_avatar(post.user_id), :class => 'profile-img' ) %>
-    <%= User.find(post.user_id).username %>
-  </div>
-  <p>Posted <%= time_ago_in_words(post.created_at) %></p>
-  <p><%= post.message %></p>
-    <%= image_tag(post.post_image, width: 200) if post.post_image.attached? %>
-    <%=
-      link_to image_tag('likebutton.png', width: 14, height: 14),
-      url_for({controller: "posts", action: "update", like: true, id: post.id}),
-      method: :patch,
-      remote: true,
-      class: "like_or_dislike_button" %>
-    <%=
-      link_to image_tag('dislikebutton.jpeg', width: 14, height: 14),
-      url_for({controller: "posts", action: "update", dislike: true, id: post.id}),
-      method: :patch,
-      remote: true,
-      class: "like_or_dislike_button" %>
-    <%= javascript_tag '$(".like_or_dislike_button").click();' %>
-  <span id=<%="likes_#{post.id}"%>>
-    <% if post.likes > 0 %>
-      Likes: <%= post.likes %>
-    <% end %>
-  </span>
-  <br>
-  <%= link_to "Comments #{post.comments.size}", post_path(post)%>
-  <br>
-  <% if current_user.id == post.user_id%>
-    <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"btn btn-danger"%>
+<section class='feed-box'>
+  <% @list_posts.each do |post| %>
+    <section class='post-box'>
+      <%= image_tag(user_avatar(post.user_id), :class => 'profile-img' ) %>
+      <%= User.find(post.user_id).username %>
+      Posted <%= time_ago_in_words(post.created_at) %>
+      <%= emojify(post.message) %>
+      <%= image_tag(post.post_image) if post.post_image.attached? %>
+      <%=
+        link_to image_tag('JF-Queen-Heart.png', width: 50),
+        url_for({controller: "posts", action: "update", like: true, id: post.id}),
+        method: :patch,
+        remote: true,
+        class: "like_or_dislike_button" %>
+      <%=
+        link_to image_tag('JF-Queen-Heart.png', width: 50),
+        url_for({controller: "posts", action: "update", dislike: true, id: post.id}),
+        method: :patch,
+        remote: true,
+        class: "like_or_dislike_button" %>
+      <%= javascript_tag '$(".like_or_dislike_button").click();' %>
+      <span id=<%="likes_#{post.id}"%>>
+        <% if post.likes > 0 %>
+        Likes: <%= post.likes %>
+        <% end %>
+      </span>
+      <div>
+        <% if current_user.id == post.user_id%>
+          <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"btn btn-danger"%>
+        <% end %>
+      <div>
+    </section>
   <% end %>
-<% end %>
+</section>
 
-
-
-
-<%= "You are currently logged in as #{current_user.username}" %>
-
-<%= link_to 'Logout', logout_path, method: :delete %>
