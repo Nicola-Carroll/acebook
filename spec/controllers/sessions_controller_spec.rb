@@ -49,4 +49,6 @@ RSpec.describe SessionsController, type: :controller do
       expect(session[:user_id]).to be_nil
     end
   end
+
+  
 end
