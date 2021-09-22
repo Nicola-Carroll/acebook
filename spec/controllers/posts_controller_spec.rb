@@ -14,20 +14,16 @@ RSpec.describe PostsController, type: :controller do
       expect(response).to redirect_to(posts_path)
     end
   end
-end
-  # describe "/DELETE" do 
-  #   let(:post1) {
-  #     Post.create(
-  #       message: "Hello, world!", 
-  #       user_id: 1
+  describe "/DELETE" do 
+    let(:post1) { Post.create(
+        message: "Hello, world!", 
+        user_id: 1)}
   
-  #   it "deletes a post" do 
-  #     session[:user_id] = 1
-  #     post1.destroy
-  #     p "HERE"
-  #     p post1
-  #     expect(Post.find_by(message: "Hello, world!")).to be
-  #   end 
-  # end 
-#end
+    it "deletes a post" do 
+      session[:user_id] = 1
+      post1.destroy                        #it's not deleting the post 
+      expect(Post.find_by(message: "Hello, world!")).to be nil
+    end 
+end 
 
+end
