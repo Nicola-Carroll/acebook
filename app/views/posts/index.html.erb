@@ -62,15 +62,13 @@
       link_to 'Like',
       url_for({controller: "posts", action: "update"}),
       method: :patch, remote: true,
-      class: 'likes-3'
+      class: "like_button"
     %>
-    <%= javascript_tag '$(".likes-3").click();' %>
+    <%= javascript_tag '$(".like_button").click();' %>
   <span id="likes-3">
-    <div id=<%="post_likes_#{post.id}"%>>
-      <% if post.likes > 0 %>
+    <% if post.likes > 0 %>
       Likes: <%= post.likes %>
     <% end %>
-    </div>
   </span>
   <br>
   <%= link_to 'Comments', post_path(post)%> <br>

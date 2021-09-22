@@ -37,7 +37,7 @@ class PostsController < ApplicationController
     @post.likes += 1
     @post.save
     value = 42 # Some expensive database query
-    render js: "$('#likes-3').html('#{value}')"
+    render js: "$('#likes-3').html('Likes: #{@post.likes}')"
     # redirect_to '/posts'
   end
 
