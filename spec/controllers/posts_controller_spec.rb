@@ -21,8 +21,11 @@ RSpec.describe PostsController, type: :controller do
   
     it "deletes a post" do 
       session[:user_id] = 1
-      post1.destroy                        #it's not deleting the post 
-      expect(Post.find_by(message: "Hello, world!")).to be nil
+      delete :destroy, 
+      params: {
+        id: 4
+      }
+      expect(Post.find_by(id: 4)).to be nil
     end 
 end 
 
