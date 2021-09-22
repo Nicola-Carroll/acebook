@@ -2,7 +2,8 @@ require_relative '../rails_helper'
 
 RSpec.describe PostsController, type: :controller do
   describe "/POST" do
-    it "responds with 200" do
+    it "Creates a post" do
+      session[:user_id] = 1
       post :create, 
       params: { 
         post: {
@@ -14,21 +15,20 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
- # describe "Post" do
-  #   it "creates a post" do
-  #     post :create, params: { post: { message: "Hello, world!" } }
-  #     expect(Post.find_by(message: "Hello, world!")).to be
-  #   end
-  # end
+#   describe "/DELETE" do 
+#     let(:post1) {
+#       Post.create(
+#         message: "Hello, world!", 
+#         user_id: 1
+#       ) 
+#     } 
+#     it "deletes a post" do 
+#       session[:user_id] = 1
+#       post1.destroy
+#       p "HERE"
+#       p post1
+#       expect(post1).to be_empty()
+#     end 
+#   end 
+# end
 
-
-
-
-# # test fails a user_id is hardcoded
-  # describe "You should be able to successfully create a new post" do
-  #   it "Accepts the parameters" do
-  #     post :create, params: { post: { message: "Hello, world!", user_id: 1 } }
-  #     # We want the post request to redirect back to the GET page index
-  #     expect(response).to redirect_to('/posts')
-  #   end
-  # end
