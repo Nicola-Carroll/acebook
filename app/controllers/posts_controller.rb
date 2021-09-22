@@ -33,12 +33,8 @@ class PostsController < ApplicationController
     elsif like
       @post.likes += 1
     end
-    @post = Post.find(3)
-    @post.likes += 1
-    @post.save
-    value = 42 # Some expensive database query
-    render js: "$('#likes-3').html('Likes: #{@post.likes}')"
-    # redirect_to '/posts'
+    @post = Post.find(params[:id])
+    render js: "$('#likes_#{params[:id]}').html('Likes: #{@post.likes}')"
   end
 
   def show
