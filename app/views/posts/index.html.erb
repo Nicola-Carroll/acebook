@@ -33,27 +33,6 @@
    <%= link_to "Comments #{post.comments.size}", post_path(post)%>
 
 <% end %>
-<%# <% @list_posts.each do |post| %>
-<%#   <p><%= User.find(post.user_id).username %>
-<%# </p>
-<%#   <p><%= post.message %>
-<%# </p>
-<%#   <%=
-<%#     link_to 'Like',
-<%#     url_for({controller: "posts", action: "update"}),
-<%#     method: :patch, remote: true,
-<%#     class: 'add-like'
-<%#   %>
-<%#   <%= javascript_tag '$(".add-like").click();' %>
-<%#   <div id=<%="post_likes_#{post.id}"%>
-<%# >
-<%#     <% if post.likes > 0 %>
-<%#     Likes: <%= post.likes %>
-<%#   <% end %>
-<%#   </div>
-<%#   <br>
-<%#   <%= link_to 'Comments', post_path(post)%>
-<%# <% end %>
 
 <% post = Post.find(3) %>
   <p><%= User.find(post.user_id).username %></p>
@@ -74,8 +53,6 @@
   <br>
   <%= link_to 'Comments', post_path(post)%> <br>
 <% end %>
-
-
 
 
 
