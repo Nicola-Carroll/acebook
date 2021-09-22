@@ -1,4 +1,4 @@
-function hello(name) {
+function updateLikes() {
   let greeting = "Hello, " + name + "!";
   console.log(greeting);
   alert(greeting);

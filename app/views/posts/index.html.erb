@@ -8,6 +8,14 @@
   <%= image_tag(post.post_image, width: 200) if post.post_image.attached? %>
   <br>
   <%= link_to image_tag('likebutton.png', width: 14, height: 14), post_path(post, change: {like: true}), method: 'patch' %>
+
+
+
+
+  
+  <%= link_to image_tag('likebutton.png', width: 14, height: 14), post, method: 'patch' %>
+  <p><%= button_tag "Like", type: 'button', id: "#{post.id}"%></p>
+  <%= link_to 'Like', post, method: 'patch' %>
   <% if post.likes > 0 %>
     + <%= post.likes %>
   <% elsif post.likes == 0 %>
