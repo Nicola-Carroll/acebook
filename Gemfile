@@ -30,9 +30,16 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+# Validations of Images for Active Storage (presence)
+gem 'active_storage_validations', '~> 0.9.5'
 # bcrypt() is a sophisticated and secure hash algorithm designed by The OpenBSD project for hashing passwords. The bcrypt Ruby gem provides a simple wrapper for safely handling passwords
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
+
+# High-level wrapper for processing images for the web with ImageMagick or libvips.
+gem 'image_processing', '~> 1.12', '>= 1.12.1'
+
+# Official AWS Ruby gem for Amazon Simple Storage Service (Amazon S3). This gem is part of the AWS SDK for Ruby.
+gem "aws-sdk-s3", require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

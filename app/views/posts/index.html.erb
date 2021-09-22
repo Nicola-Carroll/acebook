@@ -1,7 +1,11 @@
 <% @list_posts.each do |post| %>
-  <p><%= User.find(post.user_id).username %></p>
+  <div class='profile-image'>
+    <%= image_tag(user_avatar(post.user_id), :class => 'profile-img' ) %>
+    <%= User.find(post.user_id).username %>
+  </div>
   <p>Posted <%= time_ago_in_words(post.created_at) %></p>
   <p><%= post.message %></p>
+  <%= image_tag(post.post_image, width: 200) if post.post_image.attached? %>
   <%= link_to image_tag('likebutton.png', width: 14, height: 14), post, method: 'patch' %>
   <% if post.likes > 0 %>
     + <%= post.likes %>
