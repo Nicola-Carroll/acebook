@@ -3,14 +3,23 @@
     <%= image_tag(user_avatar(post.user_id), :class => 'profile-img' ) %>
     <%= User.find(post.user_id).username %>
   </div>
-  
+  <p>Posted <%= time_ago_in_words(post.created_at) %></p>
   <p><%= post.message %></p>
   <%= image_tag(post.post_image, width: 200) if post.post_image.attached? %>
-  <%= link_to 'Like', post, method: 'patch' %>
+  <%= link_to image_tag('likebutton.png', width: 14, height: 14), post, method: 'patch' %>
   <% if post.likes > 0 %>
-    Likes: <%= post.likes %>
+    + <%= post.likes %>
+  <% elsif post.likes == 0 %>
+    <%= post.likes %>
+  <% elsif post.likes < 0 %>
+   - <%= post.likes %>
   <br>
   <% end %>
   <br>
   <%= link_to 'Comments', post_path(post)%>
 <% end %>
+
+
+<%= "You are currently logged in as #{current_user.username}" %>
+
+<%= link_to 'Logout', logout_path, method: :delete %>

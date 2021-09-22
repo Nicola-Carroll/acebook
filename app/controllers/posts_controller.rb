@@ -1,17 +1,24 @@
 class PostsController < ApplicationController
   def index
     # this method is going to need parameters passed to it
-    @new_post = Post.new
+    # @new_post = Post.new
     @list_posts = Post.all.order(created_at: :desc)
   end
 
+  def new
+    @new_post = Post.new
+  end 
+
   def create
-    @new_post = Post.create(post_params)
-    if @new_post.save
-      redirect_to posts_path, notice: 'Post successful'
+    if (params[:post][:message].strip == "")
+      redirect_to new_post_path, notice: 'Canny submit empty post ya numpty'
     else
-      flash[:alert] = 'Post was not successful'
-      render 'index'
+      @new_post = Post.create(post_params)
+      if @new_post.save
+        redirect_to posts_path, notice: 'Post successful'
+      else
+        redirect_to new_post_path, notice: 'Post was not successful'
+      end
     end
   end
 
@@ -33,3 +40,4 @@ class PostsController < ApplicationController
     params.require(:post).permit(:message, :user_id, :post_image)
   end
 end 
+

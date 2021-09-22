@@ -8,11 +8,14 @@
   <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img') %>
   <%= User.find(comment.user_id).username %>
   </div>
-  <%= comment.message %>
-  <%= link_to 'Like', [comment.post, comment], method: 'patch' %>
-  <br>
-  <% if comment.likes > 0 %>
-  Likes: <%= comment.likes %>
+  <%= comment.message %><br>
+  <%= link_to image_tag('likebutton.png', width: 14, height: 14), [comment.post, comment], method: 'patch' %>
+    <% if comment.likes > 0 %>
+    + <%= comment.likes %>
+  <% elsif comment.likes == 0 %>
+    <%= comment.likes %>
+  <% elsif comment.likes < 0 %>
+   - <%= comment.likes %>
   <br>
   <% end %>
   <br>
@@ -27,3 +30,4 @@
   <%= form.submit "Submit" %>
 <% end %>
 </div>
+
