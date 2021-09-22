@@ -15,7 +15,11 @@ class PostsController < ApplicationController
       redirect_to new_post_path
     else
       @new_post = Post.create(post_params)
-      redirect_to posts_path
+      if @new_post.save
+        redirect_to posts_path
+      else
+        redirect_to new_post_path, notice: 'Post was not successful'
+      end
     end 
   end
 
