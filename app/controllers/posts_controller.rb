@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   def index
     # this method is going to need parameters passed to it
     # @new_post = Post.new
-    @list_posts = Post.all.order(created_at: :desc)
+    # This is to stop something called an rails - "n+1 query issue" - this is 'eager loading'
+    @list_posts = Post.all.order(created_at: :desc).includes(:comments)
   end
 
   def new
@@ -24,8 +25,14 @@ class PostsController < ApplicationController
   end
 
   def update
+    dislike = params['change']['dislike']
+    like = params['change']['like']
     @post = Post.find(params[:id])
-    @post.likes += 1
+    if dislike
+      @post.likes -= 1
+    elsif like
+      @post.likes += 1
+    end
     @post.save
     redirect_to posts_path
   end

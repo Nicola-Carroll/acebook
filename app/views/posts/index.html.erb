@@ -6,7 +6,8 @@
   <p>Posted <%= time_ago_in_words(post.created_at) %></p>
   <p><%= post.message %></p>
   <%= image_tag(post.post_image, width: 200) if post.post_image.attached? %>
-  <%= link_to image_tag('likebutton.png', width: 14, height: 14), post, method: 'patch' %>
+  <br>
+  <%= link_to image_tag('likebutton.png', width: 14, height: 14), post_path(post, change: {like: true}), method: 'patch' %>
   <% if post.likes > 0 %>
     + <%= post.likes %>
   <% elsif post.likes == 0 %>
@@ -15,8 +16,9 @@
    - <%= post.likes %>
   <br>
   <% end %>
+  <%= link_to image_tag('dislikebutton.jpeg', width: 14, height: 14), post_path(post, change: {dislike: true}), method: 'patch' %>
   <br>
-  <%= link_to 'Comments', post_path(post)%>
+  <%= link_to "Comments #{post.comments.size}", post_path(post)%>
 <% end %>
 
 
