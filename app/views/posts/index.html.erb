@@ -1,5 +1,6 @@
 <% @list_posts.each do |post| %>
   <p><%= User.find(post.user_id).username %></p>
+  <p>Posted <%= time_ago_in_words(post.created_at) %></p>
   <p><%= post.message %></p>
   <%= link_to image_tag('likebutton.png', width: 14, height: 14), post, method: 'patch' %>
   <% if post.likes > 0 %>
