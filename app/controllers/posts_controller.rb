@@ -11,11 +11,15 @@ class PostsController < ApplicationController
 
   def create
     if (params[:post][:message].strip == "")
-      flash[:notice] = 'Canny submit empty post ya numpty'
+      redirect_to new_post_path, notice: 'Canny submit empty post ya numpty'
     else
       @new_post = Post.create(post_params)
-    end 
-    redirect_to posts_path
+      if @new_post.save
+        redirect_to posts_path, notice: 'Post successful'
+      else
+        redirect_to new_post_path, notice: 'Post was not successful'
+      end
+    end
   end
 
   def update
@@ -33,7 +37,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:message, :user_id)
+    params.require(:post).permit(:message, :user_id, :post_image)
   end
 end 
 
