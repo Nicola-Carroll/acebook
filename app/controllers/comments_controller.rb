@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+  def index
+    @list_comments = @posts.comments.all.order(created_at: :desc)
+  end
+
   def create
     @post = Post.find(params[:post_id])
     if (params[:comment][:message].strip == "")
@@ -6,7 +10,7 @@ class CommentsController < ApplicationController
     else
       @comment = @post.comments.create(params[:comment].permit(:message, :user_id))
     end
-    redirect_to post_path(@post)
+    redirect_to posts_path
   end
 
   def update

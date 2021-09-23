@@ -218,7 +218,7 @@ form input[type='password'] {
   // flex: 7;
   bottom: 10%;
   outline: #ff471a;
-  display: none;
+  // display: none;
   margin: 0% auto;
   border: 2px solid #3e5275;
   background-color: #fff9e6;
@@ -258,14 +258,24 @@ form input[type='password'] {
   right: 8px;
 }
 
+#time-com {
+  text-align: left;
+  // padding-top: 0px;
+  // padding-bottom: 0px;
+  height: 2vh;
+  margin-left: 30px;
+  position: absolute;
+  width: 100%;
+  // top: 0%;
+  padding-right: 70px;
+}
+
 #comment-♥️ {
   text-align: right;
   padding-top: 0px;
+  padding-bottom: 30px;
   padding-right: 36px;
-  font-style: normal;
-  color: black;
-  font-weight: 200;
-  height: 2vh;
+  height: 0vh;
 }
 
 #post-♥️ {
