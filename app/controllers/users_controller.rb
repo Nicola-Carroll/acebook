@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       .require(:user)
       .permit(
         :username,
-        :username,
+        :password,
         :password_confirmation,
         :first_name,
         :last_name,
