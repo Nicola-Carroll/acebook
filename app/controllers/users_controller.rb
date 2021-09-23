@@ -31,7 +31,9 @@ class UsersController < ApplicationController
         :last_name,
         :email,
         :email_confirmation,
-        :profile_image
+        :profile_image,
+        :pronouns,
+        :bio
       )
   end
 end

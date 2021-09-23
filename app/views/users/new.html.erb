@@ -32,6 +32,9 @@
     <div>
       <%= form.text_field :email_confirmation, placeholder: 'suckerberg@acebook.com', required: true %>
     </div>
+      <div>
+        <%= form.select :pronouns, ["he/him","she/her","they/them","other"]%>
+    </div>
     <div>
       <%= form.label :profile_image, 'Upload profile picture' %>
       <%= form.file_field :profile_image, class: 'some-file-button' %>
