@@ -16,5 +16,7 @@ Rails
     get 'signup', to: 'users#new'
     post 'signup', to: 'users#create'
 
+    get 'search', to: 'posts#search'
+
     root to: 'users#new'
   end
