@@ -22,13 +22,14 @@
             <% elsif post.likes < 0 %>
             <p id='post-♥️' class='-'>♥️<%= post.likes %></p>
             <% end %>
-            <p id='comment-count'><%= post.comments.count %> Comments 💬</p>
+            <%= image_tag('JF-King-Heart.jpeg', :class => 'post-K') %>
+            <p id='comment-count'>💬 <%= post.comments.count %> Komments</p>
             <p id='heart-the-post'>Heart post</p>
           </div>
           
         </div>
         <div class="hiddendiv">
-          <strong>Recent comments</strong><br>
+          <strong>Recent Komments</strong><br>
           <% ('if comments are empty ask didplay no comments yer') %>
           <% post.comments.each do |comment| %>
           <h6 id='time'>Posted <%= time_ago_in_words(comment.created_at) %></h6>
@@ -37,14 +38,14 @@
             <%= emojify(comment.message) %>
             <%= link_to image_tag('JF-Queen-Heart.png', :class => 'comment-heart'), [comment.post, comment], method: 'patch' %>
           </div>
+          <div id='comment-♥️'>
             <p id='time-com'>Posted <%= time_ago_in_words(comment.created_at) %></p>
-          <div>
             <% if comment.likes > 0 %>
-            <p id='comment-♥️' class='+'>♥️<%= comment.likes %></p>
+            <p class='+'>♥️<%= comment.likes %></p>
             <% elsif comment.likes == 0 %>
-            <p id='comment-♥️' class='0'>♥️<%= comment.likes %></p>
+            <p class='0'>♥️<%= comment.likes %></p>
             <% elsif comment.likes < 0 %>
-            <p id='comment-♥️' class='-'>♥️<%= comment.likes %></p>
+            <p class='-'>♥️<%= comment.likes %></p>
             <% end %>
           </div>
           <% end %>
