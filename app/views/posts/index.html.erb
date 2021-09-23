@@ -70,16 +70,14 @@
               <%= form.hidden_field :user_id, value: current_user.id %>
               <%= form.submit "Submit" %>
             <% end %>
+          </div>
+    
           <div>
-        </div>
-  
-      
-      <div>
-        <% if current_user.id == post.user_id%>
-          <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"btn btn-danger"%>
-        <% end %>
-      <div>
-
+            <% if current_user.id == post.user_id%>
+              <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"btn btn-danger"%>
+            <% end %>
+          </div>
+    </div>
     </section>
   <% end %>
 </section>
