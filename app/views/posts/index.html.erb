@@ -18,7 +18,12 @@
   <% end %>
   <%= link_to image_tag('dislikebutton.jpeg', width: 14, height: 14), post_path(post, change: {dislike: true}), method: 'patch' %>
   <br>
-  <%= link_to "Comments #{post.comments.size}", post_path(post)%>
+  <% if current_user.id == post.user_id%>
+    <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"btn btn-danger"%>
+  <% end %>
+  <br>
+   <%= link_to "Comments #{post.comments.size}", post_path(post)%>
+
 <% end %>
 
 
