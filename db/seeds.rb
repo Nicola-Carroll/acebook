@@ -12,21 +12,27 @@ users = [
     email: 'mendeldurie0@example.com',
     password: 'dQlRIF',
     first_name: 'Mendel',
-    last_name: 'Durie'
+    last_name: 'Durie',
+    pronouns: 'they/them',
+    bio: 'I love horses, fear me'
   },
   {
     username: 'Joe Bloggs',
     email: 'joebloggs@example.com',
     password: 'dQlRIF',
     first_name: 'Joe',
-    last_name: 'Bloggs'
+    last_name: 'Bloggs',
+    pronouns: 'he/him',
+    bio: 'I love cows because they are cute'
   },
   {
     username: 'Sir David Attenborough',
     email: 'davidattenborough@example.com',
     password: 'dQlRIF',
     first_name: 'David',
-    last_name: 'Attenborough'
+    last_name: 'Attenborough',
+    pronouns: 'he/they',
+    bio: 'I love cats cause who wouldn\'t?'
   }
 ]
 
