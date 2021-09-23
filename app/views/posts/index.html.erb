@@ -20,9 +20,7 @@
       class: "like_or_dislike_button" %>
     <%= javascript_tag '$(".like_or_dislike_button").click();' %>
   <span id=<%="likes_#{post.id}"%>>
-    <% if post.likes > 0 %>
       Likes: <%= post.likes %>
-    <% end %>
   </span>
   <br>
   <%= link_to "Comments #{post.comments.size}", post_path(post)%>
