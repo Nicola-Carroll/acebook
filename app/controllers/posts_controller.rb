@@ -25,15 +25,14 @@ class PostsController < ApplicationController
   end
 
   def update
-    dislike = params['change']['dislike']
-    like = params['change']['like']
+    p params
     @post = Post.find(params[:id])
-    if dislike
-      @post.likes -= 1
-    elsif like
+    if params[:like]
       @post.likes += 1
+    elsif params[:dislike]
+      @post.likes -= 1
     end
-    @post = Post.find(params[:id])
+    @post.save
     render js: "$('#likes_#{params[:id]}').html('Likes: #{@post.likes}')"
   end
 
