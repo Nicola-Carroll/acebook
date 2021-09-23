@@ -52,7 +52,8 @@
             <%= link_to image_tag('JF-Queen-Heart.png', :class => 'comment-heart'), [comment.post, comment], method: 'patch' %>
           </div>
             <p id='time-com'>Posted <%= time_ago_in_words(comment.created_at) %></p>
-          <div>
+          <div id='comment-♥️'>
+            <p id='time-com'>Posted <%= time_ago_in_words(comment.created_at) %></p>
             <% if comment.likes > 0 %>
             <p class='+'>♥️ <%= comment.likes %></p>
             <% elsif comment.likes == 0 %>
@@ -62,6 +63,7 @@
             <% end %>
           </div>
           <% end %>
+
 
           <div>
             <%= form_for([post, post.comments.build]) do |form| %>
