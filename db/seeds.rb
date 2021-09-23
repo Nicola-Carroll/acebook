@@ -7,39 +7,35 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = [
-    
-  { username: 'Mendel Durie',
+  {
+    username: 'Mendel Durie',
     email: 'mendeldurie0@example.com',
     password: 'dQlRIF',
     first_name: 'Mendel',
     last_name: 'Durie'
   },
-  { username: 'Joe Bloggs',
+  {
+    username: 'Joe Bloggs',
     email: 'joebloggs@example.com',
     password: 'dQlRIF',
     first_name: 'Joe',
     last_name: 'Bloggs'
   },
-  { username: 'Sir David Attenborough',
+  {
+    username: 'Sir David Attenborough',
     email: 'davidattenborough@example.com',
     password: 'dQlRIF',
     first_name: 'David',
     last_name: 'Attenborough'
-  }]
+  }
+]
 
 users.each { |user| User.create(user) }
 
 posts = [
-    
-  { user_id: 1,
-    message: "First post",
-  },
-  { user_id: 2,
-    message: "Second post",
-  },
-  { user_id: 3,
-    message: "Third post",
-  }]
+  { user_id: 1, message: 'First post' },
+  { user_id: 2, message: 'Second post' },
+  { user_id: 3, message: 'Third post' }
+]
 
 posts.each { |post| Post.create(post) }
- 

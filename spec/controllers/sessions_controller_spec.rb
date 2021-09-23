@@ -25,7 +25,7 @@ RSpec.describe SessionsController, type: :controller do
 
     it 'alerts user if wrong password or email given' do
       post :create, params: { email: '', password: '' }
-      expect(flash[:alert]).to match('Invalid email or password')
+      expect(flash[:invalid]).to match('Invalid email or password')
     end
 
     it 'reidrects to login invalid login' do
