@@ -66,14 +66,6 @@ h5 {
   /* overflow: scroll; */
 }
 
-#title_box {
-  text-align: center;
-  width: 75%;
-  margin: 5% auto;
-  height: 10vh;
-  border-radius: 30px;
-}
-
 .create_note_box {
   /* text-align: center; */
   width: 35%;
@@ -124,8 +116,6 @@ input[type='submit']:hover {
   opacity: 0.6;
 }
 
-/* #user_email, */
-/* #user_password */
 form input[type='text'],
 form input[type='password'] {
   border-radius: 8px;
@@ -189,6 +179,7 @@ form input[type='password'] {
 
 .post-img {
   width: 200px;
+  margin-left: 30px;
 }
 
 .feed-post-box {
@@ -258,15 +249,19 @@ form input[type='password'] {
   right: 8px;
 }
 
+.post-K {
+  height: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 #time-com {
   text-align: left;
-  // padding-top: 0px;
-  // padding-bottom: 0px;
   height: 2vh;
   margin-left: 30px;
   position: absolute;
   width: 100%;
-  // top: 0%;
   padding-right: 70px;
 }
 
@@ -294,27 +289,43 @@ form input[type='password'] {
 }
 
 #comment-count {
+  display: block;
   position: absolute;
+  // position: fixed;
   width: 100%;
   top: 65%;
-  text-align: center;
+  padding-right: 400px;
+  text-align: right;
 }
 
 .bar-box {
   padding: 3px;
-  border-radius: 8px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   background-color: #fdab9b;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
+  width: 97%;
+  margin-left: auto;
+  margin-right: auto;
   list-style-type: none;
   height: 85px;
-  // overflow: hidden;
+  position: relative;
 }
 
 .logo {
   width: 45px;
-  // position: absolute;
+  border-radius: 4px;
   padding-top: 0px;
   left: 5px;
+}
+
+.ace-logo {
+  height: 145px;
+  border-radius: 5px;
+  display: block;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .profile-img-nav {
@@ -323,6 +334,7 @@ form input[type='password'] {
   margin: 17px auto;
   right: 10px;
   position: absolute;
+  margin-bottom: 50px;
 }
 
 .logo-li {

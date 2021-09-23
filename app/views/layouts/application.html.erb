@@ -31,7 +31,10 @@
     <title>♠️ Acebook</title>
   </head>
   <body>
-    <%= render 'shared/header-uniq' %>
+    <%= render 'shared/header' %>
+    <section id='title=box'>
+      <%= image_tag('JF-Ace-Spades-VR.jpeg', :class => 'ace-logo') %>
+    </section>
     <section id='box'>
         <%= render partial: "shared/flash" %>
         <%= yield %>
