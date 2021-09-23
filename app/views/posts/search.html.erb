@@ -1,1 +1,30 @@
-<h1> search results </h1>
+<h1> Posts that match your search </h1>
+<br/> 
+
+<% @list_posts.each do |post| %>
+  <div class='profile-image'>
+    <%= image_tag(user_avatar(post.user_id), :class => 'profile-img' ) %>
+    <%= User.find(post.user_id).username %>
+  </div>
+  <p>Posted <%= time_ago_in_words(post.created_at) %></p>
+  <p><%= post.message %></p>
+  <%= image_tag(post.post_image, width: 200) if post.post_image.attached? %>
+  <br>
+  <%= link_to image_tag('likebutton.png', width: 14, height: 14), post_path(post, change: {like: true}), method: 'patch' %>
+  <% if post.likes > 0 %>
+    + <%= post.likes %>
+  <% elsif post.likes == 0 %>
+    <%= post.likes %>
+  <% elsif post.likes < 0 %>
+   - <%= post.likes %>
+  <br>
+  <% end %>
+  <%= link_to image_tag('dislikebutton.jpeg', width: 14, height: 14), post_path(post, change: {dislike: true}), method: 'patch' %>
+  <br>
+  <% if current_user.id == post.user_id%>
+    <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"btn btn-danger"%>
+  <% end %>
+  <br>
+   <%= link_to "Comments #{post.comments.size}", post_path(post)%>
+
+<% end %>

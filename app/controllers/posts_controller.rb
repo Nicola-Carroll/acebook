@@ -38,11 +38,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @list_posts = Post.find(params[:id])
   end
   
   def search 
-    
+    @list_posts = Post.where("message LIKE?", "%" + params[:q] + "%")
+    p "HERE"
+    p @list_posts
   end 
 
   def destroy
