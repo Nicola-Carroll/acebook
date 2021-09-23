@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'helper_methods'
 
 RSpec.describe User, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
+  include ActionDispatch::TestProcess::FixtureFile
 
   it 'can create a user' do
     user = add_new_sample_user
@@ -45,6 +45,19 @@ RSpec.describe User, type: :model do
         username: 'Something_different_again',
         email: 'this isn\'t an email',
         password: 'griltheAnim4lz'
+      )
+    expect(user).to_not be_valid
+  end
+
+  it 'should only accept valid profile pictures' do
+    user =
+      User.create(
+        first_name: 'Tom',
+        last_name: 'Balm',
+        username: 'Something_different_again',
+        email: 'hilly@example.com',
+        password: 'griltheAnim4lz',
+        profile_image: fixture_file_upload('test_image.txt', 'image/txt')
       )
     expect(user).to_not be_valid
   end

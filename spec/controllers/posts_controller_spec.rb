@@ -25,6 +25,22 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
+  describe "POST /" do
+    it "Creates a post" do
+      session[:user_id] = 1
+      post :create, 
+      params: { 
+        post: {
+          message: "Hello, world!", 
+          user_id: 1, 
+          post_image: fixture_file_upload('test_image.jpg', 'image/jpg')
+          }
+        }
+      expect(response).to redirect_to(posts_path)
+    end
+  end
+end
+
   describe '#update' do
     it 'can like a post' do
       session[:user_id] = 1
