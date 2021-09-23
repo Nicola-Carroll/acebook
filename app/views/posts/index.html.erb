@@ -1,34 +1,81 @@
 <section class='feed-box'>
   <% @list_posts.each do |post| %>
-    <section class='post-box'>
-      <%= image_tag(user_avatar(post.user_id), :class => 'profile-img' ) %>
-      <%= User.find(post.user_id).username %>
-      Posted <%= time_ago_in_words(post.created_at) %>
+    <section class='feed-post-box'>
+      <div>
+        <h3>
+          <%= image_tag(user_avatar(post.user_id), :class => 'profile-img' ) %>
+          <%= User.find(post.user_id).username %>
+        </h3>
+          <h6 id='time'>Posted <%= time_ago_in_words(post.created_at) %></h6>
+      </div>
+      <hr id='post-hr'>
       <%= emojify(post.message) %>
-      <%= image_tag(post.post_image) if post.post_image.attached? %>
-      <%=
-        link_to image_tag('JF-Queen-Heart.png', width: 50),
-        url_for({controller: "posts", action: "update", like: true, id: post.id}),
-        method: :patch,
-        remote: true,
-        class: "like_or_dislike_button" %>
-      <%=
-        link_to image_tag('JF-Queen-Heart.png', width: 50),
-        url_for({controller: "posts", action: "update", dislike: true, id: post.id}),
-        method: :patch,
-        remote: true,
-        class: "like_or_dislike_button" %>
-      <%= javascript_tag '$(".like_or_dislike_button").click();' %>
-      <span id=<%="likes_#{post.id}"%>>
-        <% if post.likes > 0 %>
-        Likes: <%= post.likes %>
-        <% end %>
-      </span>
+      <%= image_tag((post.post_image), :class => 'post-img' ) if post.post_image.attached? %>
+  
+        <div class='comment-box' tabindex="1">
+          <div id='post-likes'>
+        
+            <%=
+              link_to image_tag('JF-Queen-Heart.png', :class => 'post-heart'),
+              url_for({controller: "posts", action: "update", like: true, id: post.id}),
+              method: :patch,
+              remote: true,
+              class: "like_or_dislike_button" %>
+            <%=
+              link_to image_tag('JF-Queen-Heart.png', :class => 'post-heart'),
+              url_for({controller: "posts", action: "update", dislike: true, id: post.id}),
+              method: :patch,
+              remote: true,
+              class: "like_or_dislike_button" %>
+            <%= javascript_tag '$(".like_or_dislike_button").click();' %>           
+            
+            
+            <span id=<%="likes_#{post.id}"%>>
+              <% if post.likes > 0 %>
+                <p id='post-♥️'>♥️ <%= post.likes %></p>
+              <% end %>
+            </span>
+            <p id='comment-count'><%= post.comments.count %> Comments 💬</p>
+            <p id='heart-the-post'>Heart post</p>
+          </div>
+        </div>
+        <div class="hiddendiv">
+          <strong>Comments:</strong><br>
+          <% ('if comments are empty ask didplay no comments yer') %>
+          <% post.comments.each do |comment| %>
+          <h6 id='time'>Posted <%= time_ago_in_words(post.created_at) %></h6>
+          <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
+          <div id='comment-message'>
+            <%= emojify(comment.message) %>
+            <%= link_to image_tag('JF-Queen-Heart.png', :class => 'comment-heart'), [comment.post, comment], method: 'patch' %>
+          </div>
+            <div>
+              <% if comment.likes > 0 %>
+              <p id='comment-♥️' class='+'>♥️<%= comment.likes %></p>
+              <% elsif comment.likes == 0 %>
+              <p id='comment-♥️' class='0'>♥️<%= comment.likes %></p>
+              <% elsif comment.likes < 0 %>
+              <p id='comment-♥️' class='-'>♥️<%= comment.likes %></p>
+              <% end %>
+            </div>
+          <% end %>
+
+          <div>
+            <%= form_for([post, post.comments.build]) do |form| %>
+              <%= form.text_field :message, placeholder: 'Write a comment...' %>
+              <%= form.hidden_field :user_id, value: current_user.id %>
+              <%= form.submit "Submit" %>
+            <% end %>
+          <div>
+        </div>
+  
+      
       <div>
         <% if current_user.id == post.user_id%>
           <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"btn btn-danger"%>
         <% end %>
       <div>
+
     </section>
   <% end %>
 </section>
