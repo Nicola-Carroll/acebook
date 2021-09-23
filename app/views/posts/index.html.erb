@@ -43,7 +43,7 @@
           <strong>Comments:</strong><br>
           <% ('if comments are empty ask didplay no comments yer') %>
           <% post.comments.each do |comment| %>
-          <h6 id='time'>Posted <%= time_ago_in_words(post.created_at) %></h6>
+          <h6 id='time'>Posted <%= time_ago_in_words(comment.created_at) %></h6>
           <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
           <div id='comment-message'>
             <%= emojify(comment.message) %>

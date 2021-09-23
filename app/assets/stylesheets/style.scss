@@ -207,17 +207,15 @@ form input[type='password'] {
   background-color: #fff9e6;
   bottom: 10%;
   height: 50px;
-  // overflow: hidden;
   position: relative;
   padding: 0.5em;
-  // outline: #ff471a;
   // border: 2px solid #ff471a;
-  // cursor: pointer;
 }
 
 .hiddendiv {
   border-radius: 8px;
   padding: 1em;
+  // flex: 7;
   bottom: 10%;
   outline: #ff471a;
   display: none;
@@ -290,4 +288,61 @@ form input[type='password'] {
   width: 100%;
   top: 65%;
   text-align: center;
+}
+
+.bar-box {
+  padding: 3px;
+  border-radius: 8px;
+  background-color: #fdab9b;
+  margin-bottom: 80px;
+  list-style-type: none;
+  height: 85px;
+  // overflow: hidden;
+}
+
+.logo {
+  width: 45px;
+  // position: absolute;
+  padding-top: 0px;
+  left: 5px;
+}
+
+.profile-img-nav {
+  border-radius: 50%;
+  height: 50px;
+  margin: 17px auto;
+  right: 10px;
+  position: absolute;
+}
+
+.logo-li {
+  font-family: 'Retrospective';
+  float: left;
+  display: block;
+  text-align: center;
+  border-radius: 8px;
+  // border: 2px solid #ff471a;
+  padding: 5px 5px 5px;
+  // padding: 0.5em;
+  text-decoration: none;
+  position: relative;
+}
+
+.li-box a {
+  font-family: 'Retrospective';
+  float: left;
+  display: block;
+  text-align: center;
+  border-radius: 8px;
+  // border: 2px solid #ff471a;
+  padding: 23px 30px 50px;
+  // padding: 0.5em;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Change the link color to #111 (black) on hover */
+.li-box a:hover,
+.logo-li:hover {
+  background-color: white;
 }
