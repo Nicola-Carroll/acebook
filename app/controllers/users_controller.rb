@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to login_path, notice: 'Signed up successfully! Please login'
     else
-      render 'new'
+      render 'new', notice: 'Oops something went wront.. Please try again!'
     end
   end
 
