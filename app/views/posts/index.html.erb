@@ -1,3 +1,6 @@
+<div class='header-title'>
+  <h1>♠️ Acebook</h1>
+</div>
 <section class='feed-box'>
   <% @list_posts.each do |post| %>
     <section class='feed-post-box'>
@@ -42,7 +45,7 @@
           <strong>Recent comments</strong><br>
           <% ('if comments are empty ask didplay no comments yer') %>
           <% post.comments.each do |comment| %>
-          <h6 id='time'>Posted <%= time_ago_in_words(comment.created_at) %></h6>
+         
           <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
           <div id='comment-message'>
             <%= emojify(comment.message) %>
@@ -51,18 +54,18 @@
             <p id='time-com'>Posted <%= time_ago_in_words(comment.created_at) %></p>
           <div>
             <% if comment.likes > 0 %>
-            <p id='comment-♥️' class='+'>♥️<%= comment.likes %></p>
+            <p class='+'>♥️ <%= comment.likes %></p>
             <% elsif comment.likes == 0 %>
-            <p id='comment-♥️' class='0'>♥️<%= comment.likes %></p>
+            <p class='0'>♥️ <%= comment.likes %></p>
             <% elsif comment.likes < 0 %>
-            <p id='comment-♥️' class='-'>♥️<%= comment.likes %></p>
+            <p class='-'>♥️ <%= comment.likes %></p>
             <% end %>
           </div>
           <% end %>
 
           <div>
             <%= form_for([post, post.comments.build]) do |form| %>
-              <%= form.text_field :message, placeholder: 'Write a comment...' %>
+              <%= form.text_field :message, placeholder: 'Write a comment...', required: true %>
               <%= form.hidden_field :user_id, value: current_user.id %>
               <%= form.submit "Submit" %>
             <% end %>
