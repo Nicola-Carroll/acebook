@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def index
-    @list_comments = @posts.comments.all.order(created_at: :desc)
+    # @list_comments = @posts.comments.all.order(created_at: :desc)
   end
 
   def create
@@ -18,6 +18,6 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
     @comment.likes += 1
     @comment.save
-    redirect_to post_path(@post)
+    redirect_to posts_path
   end
 end

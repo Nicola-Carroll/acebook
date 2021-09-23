@@ -1,3 +1,6 @@
+<div class='header-title'>
+  <h1>♠️ Acebook</h1>
+</div>
 <section class='feed-box'>
   <% @list_posts.each do |post| %>
     <section class='feed-post-box'>
@@ -16,11 +19,11 @@
           <div id='post-likes'>
             <%= link_to image_tag('JF-Queen-Heart.png', :class => 'post-heart'), post, method: 'patch' %>
             <% if post.likes > 0 %>
-            <p id='post-♥️' class='+'>♥️<%= post.likes %></p>
+            <p id='post-♥️' class='+'>♥️ <%= post.likes %></p>
             <% elsif post.likes == 0 %>
-            <p id='post-♥️' class='0'>♥️<%= post.likes %></p>
+            <p id='post-♥️' class='0'>♥️ <%= post.likes %></p>
             <% elsif post.likes < 0 %>
-            <p id='post-♥️' class='-'>♥️<%= post.likes %></p>
+            <p id='post-♥️' class='-'>♥️ <%= post.likes %></p>
             <% end %>
             <%= image_tag('JF-King-Heart.jpeg', :class => 'post-K') %>
             <p id='comment-count'>💬 <%= post.comments.count %> Komments</p>
@@ -32,7 +35,7 @@
           <strong>Recent Komments</strong><br>
           <% ('if comments are empty ask didplay no comments yer') %>
           <% post.comments.each do |comment| %>
-          <h6 id='time'>Posted <%= time_ago_in_words(comment.created_at) %></h6>
+         
           <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
           <div id='comment-message'>
             <%= emojify(comment.message) %>
@@ -41,18 +44,18 @@
           <div id='comment-♥️'>
             <p id='time-com'>Posted <%= time_ago_in_words(comment.created_at) %></p>
             <% if comment.likes > 0 %>
-            <p class='+'>♥️<%= comment.likes %></p>
+            <p class='+'>♥️ <%= comment.likes %></p>
             <% elsif comment.likes == 0 %>
-            <p class='0'>♥️<%= comment.likes %></p>
+            <p class='0'>♥️ <%= comment.likes %></p>
             <% elsif comment.likes < 0 %>
-            <p class='-'>♥️<%= comment.likes %></p>
+            <p class='-'>♥️ <%= comment.likes %></p>
             <% end %>
           </div>
           <% end %>
 
           <div>
             <%= form_for([post, post.comments.build]) do |form| %>
-              <%= form.text_field :message, placeholder: 'Write a comment...' %>
+              <%= form.text_field :message, placeholder: 'Write a comment...', required: true %>
               <%= form.hidden_field :user_id, value: current_user.id %>
               <%= form.submit "Submit" %>
             <% end %>
