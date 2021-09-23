@@ -1,6 +1,3 @@
-<%= "You are currently logged in as #{current_user.username}" %><br>
-<%= image_tag(current_user.profile_image, :class => 'profile-img' ) %>
-
 <section class='feed-box'>
   <% @list_posts.each do |post| %>
     <section class='feed-post-box'>
@@ -14,8 +11,7 @@
       <hr id='post-hr'>
       <%= emojify(post.message) %>
       <%= image_tag((post.post_image), :class => 'post-img' ) if post.post_image.attached? %><br>
-      <%= link_to 'Comments', post_path(post)%>
-  
+
         <div class='comment-box' tabindex="1">
           <div id='post-likes'>
             <%= link_to image_tag('JF-Queen-Heart.png', :class => 'post-heart'), post, method: 'patch' %>
@@ -35,7 +31,7 @@
           <strong>Comments:</strong><br>
           <% ('if comments are empty ask didplay no comments yer') %>
           <% post.comments.each do |comment| %>
-          <h6 id='time'>Posted <%= time_ago_in_words(post.created_at) %></h6>
+          <h6 id='time'>Posted <%= time_ago_in_words(comment.created_at) %></h6>
           <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
           <div id='comment-message'>
             <%= emojify(comment.message) %>
