@@ -43,8 +43,6 @@ class PostsController < ApplicationController
   
   def search 
     @list_posts = Post.where("message LIKE?", "%" + params[:q] + "%")
-    p "HERE"
-    p @list_posts
   end 
 
   def destroy
