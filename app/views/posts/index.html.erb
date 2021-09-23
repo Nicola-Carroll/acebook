@@ -41,9 +41,7 @@
       link_to 'Like',
       url_for({controller: "posts", action: "update", id: "#{post.id}"}),
       method: :patch, remote: true,
-      class: "like_button",
-      data: {id: 3}
-    %>
+      class: "like_button" %>
     <%= javascript_tag '$(".like_button").click();' %>
   <span id=<%="likes_#{post.id}"%>>
     <% if post.likes > 0 %>
