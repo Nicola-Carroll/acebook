@@ -40,6 +40,11 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
   end
+  
+  def search 
+    
+  end 
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
