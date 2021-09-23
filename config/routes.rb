@@ -7,6 +7,7 @@ Rails
       resources :comments
     end
 
+
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
 
@@ -15,6 +16,8 @@ Rails
 
     get 'signup', to: 'users#new'
     post 'signup', to: 'users#create'
+
+    get ':username', to: 'users#show', as: :username
 
     root to: 'users#new'
   end

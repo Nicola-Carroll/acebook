@@ -17,6 +17,9 @@
             <%= link_to "Add Post", new_post_path, class:"nav-link"%>
           </li>
           <li class="nav-item">
+            <%= link_to "User Page", username_path(current_user[:username]), class:"nav-link"%>
+          </li>
+          <li class="nav-item">
             <%= link_to "Logout", logout_path, method: :delete, class:"nav-link" %>
           </li>
         <% else %>
