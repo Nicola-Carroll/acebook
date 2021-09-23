@@ -7,8 +7,6 @@ Rails
       resources :comments
     end
 
-    patch 'posts', to: 'posts#update'
-
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
 

@@ -25,7 +25,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    p params
     @post = Post.find(params[:id])
     if params[:like]
       @post.likes += 1
