@@ -5,26 +5,32 @@
   </div>
   <p>Posted <%= time_ago_in_words(post.created_at) %></p>
   <p><%= post.message %></p>
-  <%= image_tag(post.post_image, width: 200) if post.post_image.attached? %>
+    <%= image_tag(post.post_image, width: 200) if post.post_image.attached? %>
+    <%=
+      link_to image_tag('likebutton.png', width: 14, height: 14),
+      url_for({controller: "posts", action: "update", like: true, id: post.id}),
+      method: :patch,
+      remote: true,
+      class: "like_or_dislike_button" %>
+    <%=
+      link_to image_tag('dislikebutton.jpeg', width: 14, height: 14),
+      url_for({controller: "posts", action: "update", dislike: true, id: post.id}),
+      method: :patch,
+      remote: true,
+      class: "like_or_dislike_button" %>
+    <%= javascript_tag '$(".like_or_dislike_button").click();' %>
+  <span id=<%="likes_#{post.id}"%>>
+      Likes: <%= post.likes %>
+  </span>
   <br>
-  <%= link_to image_tag('likebutton.png', width: 14, height: 14), post_path(post, change: {like: true}), method: 'patch' %>
-  <% if post.likes > 0 %>
-    + <%= post.likes %>
-  <% elsif post.likes == 0 %>
-    <%= post.likes %>
-  <% elsif post.likes < 0 %>
-   - <%= post.likes %>
-  <br>
-  <% end %>
-  <%= link_to image_tag('dislikebutton.jpeg', width: 14, height: 14), post_path(post, change: {dislike: true}), method: 'patch' %>
+  <%= link_to "Comments #{post.comments.size}", post_path(post)%>
   <br>
   <% if current_user.id == post.user_id%>
     <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"btn btn-danger"%>
   <% end %>
-  <br>
-   <%= link_to "Comments #{post.comments.size}", post_path(post)%>
-
 <% end %>
+
+
 
 
 <%= "You are currently logged in as #{current_user.username}" %>

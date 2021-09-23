@@ -1,10 +1,8 @@
-
 Rails
   .application
   .routes
   .draw do
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
     resources :posts do
       resources :comments
     end
@@ -18,6 +16,7 @@ Rails
     get 'signup', to: 'users#new'
     post 'signup', to: 'users#create'
 
+    get 'search', to: 'posts#search'
+
     root to: 'users#new'
   end
-

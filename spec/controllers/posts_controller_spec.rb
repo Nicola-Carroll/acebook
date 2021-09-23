@@ -17,7 +17,7 @@ RSpec.describe PostsController, type: :controller do
   #   end
   # end
 
-  describe "user is not signed in" do
+  describe 'user is not signed in' do
     it 'alerts please sign in' do
       session[:user_id] = nil
       get :index
@@ -41,6 +41,20 @@ RSpec.describe PostsController, type: :controller do
   end
 end
 
+  describe '#update' do
+    it 'can like a post' do
+      session[:user_id] = 1
+      patch :update, params: { id: '1', like: 'true' }
+      expect(Post.find(1).likes).to eq(1)
+    end
+
+    it 'can dislike a post' do
+      session[:user_id] = 1
+      patch :update, params: { id: '1', dislike: 'true' }
+      expect(Post.find(1).likes).to eq(-1)
+    end
+  end
+end
 
 # it "creates a post" do
 #   post :create, params: { post: { message: "Hello, world!" } }
