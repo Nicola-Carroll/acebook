@@ -18,7 +18,8 @@ RSpec.describe UsersController, type: :controller do
                last_name: 'Balm',
                username: 'Tommy',
                email: 'tom@example.com',
-               password: 'griltheAnim4lz'
+               password: 'griltheAnim4lz',
+               profile_image: fixture_file_upload('test_image.jpg', 'image/jpg')
              }
            }
       expect(response).to redirect_to(login_path)

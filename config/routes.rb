@@ -18,6 +18,8 @@ Rails
     post 'signup', to: 'users#create'
 
     get ':username', to: 'users#show', as: :username
-
+    
+    get 'search', to: 'posts#search'
     root to: 'users#new'
+
   end

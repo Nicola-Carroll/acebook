@@ -1,50 +1,45 @@
-<section class='create_note_box'>
-  <h1>Create new account</h1>
+<div class='header-title'>
   <h1>Enter User Details</h1>
+</div>
+<section class='login-box'>
 
-<% if !!flash[:alert] %>
-  <% flash.each do |k, msg| %>
-    <div>
-      <%= msg %>
-    </div>
-  <% end %>
-<% end %>
+  <%# <h1>Create new account</h1> %>
+  <%# <h1>Enter User Details</h1> %>
 
   <%= form_for @user, url: signup_path do |form| %>
-    <h2>Enter User Details</h2>
     <% @user.errors.full_messages.each do |msg| %>
        <li> <%= msg %></li>
     <% end %>
   
     <div>
-      <%= form.text_field :username, placeholder: 'Username' %>
+      <%= form.text_field :username, placeholder: 'Username', required: true %>
     </div>
     <div>
-      <%= form.text_field :first_name, placeholder: 'First name' %>
+      <%= form.text_field :first_name, placeholder: 'First name', required: true %>
     </div>
     <div>
-      <%= form.text_field :last_name, placeholder: 'Surname' %>
+      <%= form.text_field :last_name, placeholder: 'Surname', required: true %>
     </div>
     <div>
-      <%= form.password_field :password, placeholder: 'Password' %>
+      <%= form.password_field :password, placeholder: 'Password', required: true %>
     </div>
     <div>
-      <%= form.password_field :password_confirmation, placeholder: 'Confirm Password' %>
+      <%= form.password_field :password_confirmation, placeholder: 'Confirm Password', required: true %>
     </div>
     <div>
-      <%= form.text_field :email, placeholder: 'suckerberg@acebook.com' %>
+      <%= form.text_field :email, placeholder: 'suckerberg@acebook.com', required: true %>
     </div>
     <div>
-      <%= form.text_field :email_confirmation, placeholder: 'suckerberg@acebook.com' %>
+      <%= form.text_field :email_confirmation, placeholder: 'suckerberg@acebook.com', required: true %>
     </div>
-      <div>
-      <%= form.label :profile_image %>
-      <%= form.file_field :profile_image %>
-      </div>
     <div>
-      <%= form.submit %>
+      <%= form.label :profile_image, 'Upload profile picture' %>
+      <%= form.file_field :profile_image, class: 'some-file-button' %>
     </div>
-  <% end %><br>
+    <div >
+      <%= form.submit class: 'submit-button' %>
+    </div>
+  <% end %>
 
   <div>
     Already have an account? <%= link_to "Login", login_path%>

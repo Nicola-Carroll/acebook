@@ -1,41 +1,85 @@
+<div class='header-title'>
+  <h1>♠️ Acebook</h1>
+</div>
+<section class='feed-box'>
+  <% @list_posts.each do |post| %>
+    <section class='feed-post-box'>
+      <div>
+        <h3>
+          <%= image_tag(user_avatar(post.user_id), :class => 'profile-img' ) %>
+          <%= User.find(post.user_id).username %>
+        </h3>
+          <h6 id='time'>Posted <%= time_ago_in_words(post.created_at) %></h6>
+      </div>
+      <hr id='post-hr'>
+      <%= emojify(post.message) %>
+      <%= image_tag((post.post_image), :class => 'post-img' ) if post.post_image.attached? %>
+        <div class='comment-box' tabindex="1">
+          <div id='post-likes'>
+        
+            <%=
+              link_to image_tag('JF-Queen-Heart.png', :class => 'post-heart'),
+              url_for({controller: "posts", action: "update", like: true, id: post.id}),
+              method: :patch,
+              remote: true,
+              class: "like_or_dislike_button" %>
+            <%=
+              link_to image_tag('JF-Joker-Spades.png', height: 70, :class => 'post-heart-broken'),
+              url_for({controller: "posts", action: "update", dislike: true, id: post.id}),
+              method: :patch,
+              remote: true,
+              class: "like_or_dislike_button" %>
+            <%= javascript_tag '$(".like_or_dislike_button").click();' %>           
+            
+            
+            <span id=<%="likes_#{post.id}"%>>
+              <%# <% if post.likes > 0 %> 
+                <p id='post-♥️'>♥️ <%= post.likes %></p>
+              <%# <% end %> 
+            </span>
+            <%= image_tag('JF-King-Heart.jpeg', :class => 'post-K') %>
+            <p id='comment-count'>💬 <%= post.comments.count %> Komments</p>
+            <p id='heart-the-post'>Heart post</p>
+          </div>
+        </div>
+>>>>>>> 389cdd6eec90a15132f0ddc850f1fd83b36cd509
 
-<% @list_posts.each do |post| %>
-  <div class='profile-image'>
-    <%= image_tag(user_avatar(post.user_id), :class => 'profile-img' ) %>
-    <%= User.find(post.user_id).username %>
-  </div>
-  <p>Posted <%= time_ago_in_words(post.created_at) %></p>
-  <p><%= post.message %></p>
-    <%= image_tag(post.post_image, width: 200) if post.post_image.attached? %>
-    <%=
-      link_to image_tag('likebutton.png', width: 14, height: 14),
-      url_for({controller: "posts", action: "update", like: true, id: post.id}),
-      method: :patch,
-      remote: true,
-      class: "like_or_dislike_button" %>
-    <%=
-      link_to image_tag('dislikebutton.jpeg', width: 14, height: 14),
-      url_for({controller: "posts", action: "update", dislike: true, id: post.id}),
-      method: :patch,
-      remote: true,
-      class: "like_or_dislike_button" %>
-    <%= javascript_tag '$(".like_or_dislike_button").click();' %>
-  <span id=<%="likes_#{post.id}"%>>
-    <% if post.likes > 0 %>
-      Likes: <%= post.likes %>
-    <% end %>
-  </span>
-  <br>
-  <%= link_to "Comments #{post.comments.size}", post_path(post)%>
-  <br>
-  <% if current_user.id == post.user_id%>
-    <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"btn btn-danger"%>
+        <div class="hiddendiv">
+          <strong>Recent Komments</strong><br>
+          <% ('if comments are empty ask didplay no comments yer') %>
+          <% post.comments.each do |comment| %>
+         
+          <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
+          <div id='comment-message'>
+            <%= emojify(comment.message) %>
+            <%= link_to image_tag('JF-Queen-Heart.png', :class => 'comment-heart'), [comment.post, comment], method: 'patch' %>
+          </div>
+          <div id='comment-♥️'>
+            <p id='time-com'>Posted <%= time_ago_in_words(comment.created_at) %></p>
+            <% if comment.likes > 0 %>
+            <p class='+'>♥️ <%= comment.likes %></p>
+            <% elsif comment.likes == 0 %>
+            <p class='0'>♥️ <%= comment.likes %></p>
+            <% elsif comment.likes < 0 %>
+            <p class='-'>♥️ <%= comment.likes %></p>
+            <% end %>
+          </div>
+          <% end %>
+          <div>
+            <%= form_for([post, post.comments.build]) do |form| %>
+              <%= form.text_field :message, placeholder: 'Write a comment...', required: true %>
+              <%= form.hidden_field :user_id, value: current_user.id %>
+              <%= form.submit "Submit" %>
+            <% end %>
+          </div>
+    
+          <div>
+            <% if current_user.id == post.user_id%>
+              <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"btn btn-danger"%>
+            <% end %>
+          </div>
+    </div>
+    </section>
   <% end %>
-<% end %>
+</section>
 
-
-
-
-<%= "You are currently logged in as #{current_user.username}" %>
-
-<%= link_to 'Logout', logout_path, method: :delete %>

@@ -23,7 +23,7 @@
 .byebug_history
 /config/master.key
 .DS_Store
-
+/storage
 /public/packs
 /public/packs-test
 /node_modules

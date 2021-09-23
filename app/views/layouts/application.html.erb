@@ -10,18 +10,34 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- TinyMCE TextArea -->
+    <script src="https://cdn.tiny.cloud/1/g4pfom5pzp5fn8kg1hmtjw1hl0zluzstgorojbaozsycqqg0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+    tinymce.init({
+        selector: "#mytextarea",
+        plugins: "emoticons autoresize",
+        toolbar: "emoticons",
+        width: 200,
+        // editor_css : 'path_to_css'.'/application.css',
+        toolbar_location: "bottom",
+        statusbar: false,
+        menubar: false
+      });
+    </script>
+
     <%= stylesheet_link_tag 'style', media: 'all',
     'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
-    <title>Acebook</title>
+    <title>♠️ Acebook</title>
   </head>
   <body>
-    <%= render 'users/header' %>
+    <%= render 'shared/header' %>
+    <section id='title=box'>
+      <%= image_tag('JF-Ace-Spades-VR.jpeg', :class => 'ace-logo') %>
+    </section>
     <section id='box'>
-      <div class="container">
         <%= render partial: "shared/flash" %>
         <%= yield %>
-      </div> 
     </section>
   </body>
 </html>
