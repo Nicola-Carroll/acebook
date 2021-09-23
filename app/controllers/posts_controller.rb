@@ -32,7 +32,7 @@ class PostsController < ApplicationController
       @post.likes -= 1
     end
     @post.save
-    render js: "$('#likes_#{params[:id]}').html('Likes: #{@post.likes}')"
+    render js: "$('#likes_#{params[:id]}').html('♥️ #{@post.likes}')"
   end
 
   def show

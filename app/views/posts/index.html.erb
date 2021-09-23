@@ -33,9 +33,9 @@
             
             
             <span id=<%="likes_#{post.id}"%>>
-              <% if post.likes > 0 %>
+              <%# <% if post.likes > 0 %> 
                 <p id='post-♥️'>♥️ <%= post.likes %></p>
-              <% end %>
+              <%# <% end %> 
             </span>
             <%= image_tag('JF-King-Heart.jpeg', :class => 'post-K') %>
             <p id='comment-count'>💬 <%= post.comments.count %> Komments</p>
