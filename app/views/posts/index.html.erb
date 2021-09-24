@@ -46,8 +46,8 @@
           </div>
         </div>
 
-        <%# <div id=<%="hidden_#{post.id}" %>
-        <div id='hiddendiv'>
+        <div id=<%="hidden_#{post.id}" %> >
+        <%# <div id='hiddendiv'> %>
           <strong>Recent Komments</strong><br>
           <% ('if comments are empty ask didplay no comments yer') %>
           <% post.comments.each do |comment| %>
@@ -80,19 +80,18 @@
             <% if current_user.id == post.user_id%>
               <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"del-danger" %>
             <% end %>
-<<<<<<< HEAD
           </div>
       </div>
-=======
           </div>  
         </div>
 
       <script>
+        const current_id = `${<%="hidden_#{post.id}" %>}`
         function myFunction() {
           // const post_id = `hidden_${post.id}`;
-          const post_id = "hiddendiv";
-          // var x = document.getElementById(`hidden_${post_id}`);
-          var x = document.getElementById("hiddendiv");
+          // const post_id = "hiddendiv";
+          var x = document.getElementById(current_id);
+          // var x = document.getElementById(<%="hidden_#{post.id}" %>);
           if (x.style.display === "none") {
             x.style.display = "block";
           } else {
@@ -102,7 +101,6 @@
       </script>
 
 
->>>>>>> 1f203896ec107b951eee75b34b87568027246cb2
     </section>
   <% end %>
 </section>
