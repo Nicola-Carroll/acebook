@@ -7,6 +7,7 @@ Rails
       resources :comments
     end
 
+    get 'show_comments', to: 'comments#show'
 
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
@@ -19,7 +20,6 @@ Rails
 
     get 'search', to: 'posts#search'
     get ':username', to: 'users#show', as: :username
-    
-    root to: 'users#new'
 
+    root to: 'users#new'
   end

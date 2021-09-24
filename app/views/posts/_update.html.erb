@@ -1,0 +1,5 @@
+<% if @post.likes >= 0 %>
+  <%= "♥️#{@post.likes}" %>
+<% else %>
+  <%= "💔#{@post.likes}" %>
+<% end %>

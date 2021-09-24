@@ -3,12 +3,18 @@ class CommentsController < ApplicationController
     # @list_comments = @posts.comments.all.order(created_at: :desc)
   end
 
+  def show
+    @post = Post.find(params[:id])
+    respond_to { |format| format.js }
+  end
+
   def create
     @post = Post.find(params[:post_id])
-    if (params[:comment][:message].strip == "")
+    if (params[:comment][:message].strip == '')
       flash[:emptycomment] = 'Cannae submit empty comment ya numpty'
     else
-      @comment = @post.comments.create(params[:comment].permit(:message, :user_id))
+      @comment =
+        @post.comments.create(params[:comment].permit(:message, :user_id))
     end
     redirect_to posts_path
   end

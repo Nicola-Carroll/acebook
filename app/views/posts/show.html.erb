@@ -10,13 +10,11 @@
     <%# Posted <%= time_ago_in_words(post.created_at) %>
   </div>
   <%= emojify(comment.message) %>
-  <%= link_to image_tag('JF-Queen-Heart.png', width: 50), [comment.post, comment], method: 'patch' %>
-    <% if comment.likes > 0 %>
-      + <%= comment.likes %>
-    <% elsif comment.likes == 0 %>
-      <%= comment.likes %>
-    <% elsif comment.likes < 0 %>
-      - <%= comment.likes %>
+  <%= image_tag('JF-Queen-Heart.png', :class => 'post-heart-show') %>
+    <% if post.likes >= 0 %>
+      <p id='post-♥️'>♥️<%= comment.likes %></p>
+    <% else %>
+      <p id='post-♥️'>💔<%= comment.likes %></p>
     <% end %>
   <% end %>
 </section>
