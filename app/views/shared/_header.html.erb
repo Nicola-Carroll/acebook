@@ -14,7 +14,7 @@
         <%= link_to "Log Out", logout_path, method: :delete %>
       </li>
         <p id='vp'>Visit Profile</p>
-        <%= link_to image_tag(user_avatar(current_user.id), :class => 'profile-img-nav'), username_path(current_user[:username]) %> 
+        <%= link_to image_tag(user_avatar(current_user.id), :class => 'profile-img-nav'), username_path(current_user[:username]), :class => 'visit-profile' %> 
       <li class="li-box">
         <form action="/search">
           <input class="seach-bar" name="q" type="search" placeholder="Search" required=true>
