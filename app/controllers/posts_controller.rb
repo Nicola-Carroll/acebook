@@ -32,21 +32,13 @@ class PostsController < ApplicationController
       @post.likes -= 1
     end
     @post.save
-    render js: "$('#likes_#{params[:id]}').html('Likes: #{@post.likes}')"
+    respond_to { |format| format.js }
+    # render js: "$('#likes_#{params[:id]}').html('Likes: #{@post.likes}')"
   end
 
   def show
     @post = Post.find(params[:id])
   end
-
-  def search 
-    if (params[:q].strip == "")
-      flash[:emptymessage] = 'Cannae submit empty search ya numpty'
-      redirect_to posts_path
-    end
-    @list_posts = Post.where("message LIKE?", "%" + params[:q] + "%")
-    @display_search = params[:q]
-  end 
 
   def destroy
     @post = Post.find(params[:id])

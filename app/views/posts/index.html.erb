@@ -18,7 +18,7 @@
       method: :patch,
       remote: true,
       class: "like_or_dislike_button" %>
-    <%= javascript_tag '$(".like_or_dislike_button").click();' %>
+    <%# <%= javascript_tag '$(".like_or_dislike_button").click();' %>
   <span id=<%="likes_#{post.id}"%>>
       Likes: <%= post.likes %>
   </span>
