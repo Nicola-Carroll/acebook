@@ -1,5 +1,5 @@
 <div class='header-title'>
-  <h1>Create an Account</h1>
+  <h1 id='center'>Create an Account</h1>
 </div>
 <section class='login-box'>
 
@@ -30,7 +30,7 @@
       <%= form.text_field :email_confirmation, placeholder: 'suckerberg@acebook.com', required: true %>
     </div>
     <div>
-      <%= form.label :pronouns, " Select your pronouns" %><br>
+      <%= form.label :pronouns, " Select your pronouns", :id => 'left-w' %><br>
       <%= form.select :pronouns, [" ", "he/him","she/her","they/them","other"], required: true, :class => 'sml-button' %>
     </div>
     <div>
@@ -47,7 +47,7 @@
     </div>
   <% end %>
   <div>
-    <p id='center'>Already have an account?</p>
+    <p id='center-w'>Already have an account?</p>
     <%= button_to "Log In", login_path, :class => 'sml-button' %>
   </div>
 </section>

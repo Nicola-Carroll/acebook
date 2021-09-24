@@ -1,6 +1,7 @@
         <div id=<%="hidden_#{post.id}" %> >
         <%# <div id='hiddendiv'> %>
-          <strong>Recent Komments</strong><br>
+          <br><strong id='rcs-com'>Recent Komments</strong><br>
+          <%# <p id='rcs-com' >Recent Komments</p><br> %>
           <% ('if comments are empty ask didplay no comments yer') %>
           <% post.comments.each do |comment| %>
          

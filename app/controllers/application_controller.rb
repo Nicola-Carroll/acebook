@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     if user.profile_image.attached?
       user.profile_image
     else
-      'default_avatar.jpg'
+      'fancy-joker.png'
     end
   end
 

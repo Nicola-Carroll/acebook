@@ -37,8 +37,8 @@
     <section id='title=box'>
       <%= image_tag('ace.png', :class => 'ace-logo') %>
     </section>
+      <h3><%= render partial: "shared/flash" %></h3>
     <section id='box'>
-        <%= render partial: "shared/flash" %>
         <%= yield %>
     </section>
   </body>

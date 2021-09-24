@@ -1,4 +1,4 @@
-<section class='feed-post-box'>
+<section class='feed-post-box2'>
   <div class='field-panorama'>
     <%= image_tag(user_avatar(current_user.id), :class => 'profile-square')%>
   </div>
@@ -49,9 +49,8 @@
           <% post.comments.each do |comment| %>
          
           <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
-          <div id='comment-message'>
+          <div id='comment-message-show'>
             <%= emojify(comment.message) %>
-            
           </div>
           <div id='comment-♥️'>
             <p id='time-com'>Posted <%= time_ago_in_words(comment.created_at) %></p>
