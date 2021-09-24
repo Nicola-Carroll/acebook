@@ -7,3 +7,7 @@ def add_new_sample_user
     password: 'griltheAnim4lz'
   )
 end
+
+def create_a_post_with_comments
+  Comment.create(user_id: 1, post_id: 1, message: 'This is a comment')
+end

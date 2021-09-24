@@ -46,7 +46,7 @@
               url_for({controller: "comments", action: "show", open: true, id: post.id}),
               method: :get,
               remote: true,
-              class: "show_comments" %> 
+              id: "show_comments_#{post.id}" %> 
 
             <p id='comment-count'>💬 <%= post.comments.count %> Komments</p>
             <p id='heart-the-post'>Heart post</p>
