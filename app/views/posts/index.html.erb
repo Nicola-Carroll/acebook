@@ -1,6 +1,6 @@
-<div class='header-title'>
-  <h1>♠️ Acebook</h1>
-</div>
+  <div class='header-title-login'>
+    <h1>Acebook</h1>
+  </div>
 <section class='feed-box'>
   <% @list_posts.each do |post| %>
     <section class='feed-post-box'>
@@ -14,7 +14,7 @@
       <hr id='post-hr'>
       <%= emojify(post.message) %>
       <%= image_tag((post.post_image), :class => 'post-img' ) if post.post_image.attached? %>
-        <div class='comment-box' tabindex="1">
+        <div class='comment-box'>
           <div id='post-likes'>
         
             <%=
@@ -32,18 +32,22 @@
             <%= javascript_tag '$(".like_or_dislike_button").click();' %>           
             
             
-            <span id=<%="likes_#{post.id}"%>>
-              <%# <% if post.likes > 0 %> 
-                <p id='post-♥️'>♥️ <%= post.likes %></p>
-              <%# <% end %> 
+            <span id=<%="likes_#{post.id}" %> class='post-♥️'>
+              <% if post.likes >= 0 %>
+                <p id='post-♥️'>♥️<%= post.likes %></p>
+              <% else %>
+                <p id='post-♥️'>💔<%= post.likes %></p>
+              <% end %>
             </span>
-            <%= image_tag('JF-King-Heart.jpeg', :class => 'post-K') %>
+            <%# <%= image_tag('JF-King-Heart.jpeg', :onclick => "myFunction()", :class => 'post-K') %>
+            <button onclick="myFunction()" class='close-button'></button>
             <p id='comment-count'>💬 <%= post.comments.count %> Komments</p>
             <p id='heart-the-post'>Heart post</p>
           </div>
         </div>
 
-        <div class="hiddendiv">
+        <%# <div id=<%="hidden_#{post.id}" %>
+        <div id='hiddendiv'>
           <strong>Recent Komments</strong><br>
           <% ('if comments are empty ask didplay no comments yer') %>
           <% post.comments.each do |comment| %>
@@ -66,19 +70,34 @@
           <% end %>
           <div>
             <%= form_for([post, post.comments.build]) do |form| %>
-              <%= form.text_field :message, placeholder: 'Write a comment...', required: true %>
+              <%= form.text_field :message, placeholder: 'Write a comment...', required: true, :class => 'comment-field' %>
               <%= form.hidden_field :user_id, value: current_user.id %>
-              <%= form.submit "Submit" %>
+              <%= form.submit "Submit", :class => 'sbm-comment-btn' %>
             <% end %>
           </div>
     
           <div>
             <% if current_user.id == post.user_id%>
-              <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"btn btn-danger"%>
+              <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"del-danger" %>
             <% end %>
-          </div>
-    </div>
+          </div>  
+        </div>
+
+      <script>
+        function myFunction() {
+          // const post_id = `hidden_${post.id}`;
+          const post_id = "hiddendiv";
+          // var x = document.getElementById(`hidden_${post_id}`);
+          var x = document.getElementById("hiddendiv");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+      </script>
+
+
     </section>
   <% end %>
 </section>
-

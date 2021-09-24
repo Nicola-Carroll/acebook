@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user= User.find_by(username: params[:username])
+    @user_feed = current_user.posts.all.order(created_at: :desc)
   end
 
   private
@@ -31,7 +32,9 @@ class UsersController < ApplicationController
         :last_name,
         :email,
         :email_confirmation,
-        :profile_image
+        :profile_image,
+        :pronouns,
+        :bio
       )
   end
 end
