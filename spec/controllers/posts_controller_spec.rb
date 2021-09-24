@@ -17,19 +17,15 @@ RSpec.describe PostsController, type: :controller do
     end
   end
   
-  describe "/POST" do
-
-    let(:post1) { Post.create(
-      message: "Bye, World!",
-      user_id: 1)}
-
+  describe "POST /" do
     it "Creates a post" do
       session[:user_id] = 1
-      post :create,
-      params: {
+      post :create, 
+      params: { 
         post: {
-          message: "Hello, world!",
-          user_id: 1
+          message: "Hello, world!", 
+          user_id: 1, 
+          post_image: fixture_file_upload('test_image.jpg', 'image/jpg')
           }
         }
       expect(response).to redirect_to(posts_path)
@@ -50,6 +46,7 @@ RSpec.describe PostsController, type: :controller do
       patch :update, params: { id: '1', like: 'true' }
       expect(Post.find(1).likes).to eq(1)
     end
+    
     it 'can dislike a post' do
       session[:user_id] = 1
       patch :update, params: { id: '1', dislike: 'true' }
