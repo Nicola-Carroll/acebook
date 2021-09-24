@@ -28,8 +28,7 @@
               url_for({controller: "posts", action: "update", dislike: true, id: post.id}),
               method: :patch,
               remote: true,
-              class: "like_or_dislike_button" %>
-            <%= javascript_tag '$(".like_or_dislike_button").click();' %>           
+              class: "like_or_dislike_button" %>        
             
             
             <span id=<%="likes_#{post.id}" %> class='post-♥️'>
@@ -40,41 +39,23 @@
               <% end %>
             </span>
             <%# <%= image_tag('JF-King-Heart.jpeg', :onclick => "myFunction()", :class => 'post-K') %>
-            <button onclick="myFunction()" class='close-button'></button>
+
+
+            <%=
+              link_to "Show comments",
+              url_for({controller: "comments", action: "show", open: true, id: post.id}),
+              method: :get,
+              remote: true,
+              class: "show_comments" %> 
+
             <p id='comment-count'>💬 <%= post.comments.count %> Komments</p>
             <p id='heart-the-post'>Heart post</p>
           </div>
         </div>
 
-        <div id=<%="hidden_#{post.id}" %> >
-        <%# <div id='hiddendiv'> %>
-          <strong>Recent Komments</strong><br>
-          <% ('if comments are empty ask didplay no comments yer') %>
-          <% post.comments.each do |comment| %>
-         
-          <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
-          <div id='comment-message'>
-            <%= emojify(comment.message) %>
-            <%= link_to image_tag('JF-Queen-Heart.png', :class => 'comment-heart'), [comment.post, comment], method: 'patch' %>
-          </div>
-          <div id='comment-♥️'>
-            <p id='time-com'>Posted <%= time_ago_in_words(comment.created_at) %></p>
-            <% if comment.likes > 0 %>
-            <p class='+'>♥️ <%= comment.likes %></p>
-            <% elsif comment.likes == 0 %>
-            <p class='0'>♥️ <%= comment.likes %></p>
-            <% elsif comment.likes < 0 %>
-            <p class='-'>♥️ <%= comment.likes %></p>
-            <% end %>
-          </div>
-          <% end %>
-          <div>
-            <%= form_for([post, post.comments.build]) do |form| %>
-              <%= form.text_field :message, placeholder: 'Write a comment...', required: true, :class => 'comment-field' %>
-              <%= form.hidden_field :user_id, value: current_user.id %>
-              <%= form.submit "Submit", :class => 'sbm-comment-btn' %>
-            <% end %>
-          </div>
+        <span id=<%="comments_#{post.id}" %>>
+        <%# nothing rendered by default, so comments start off as hidden %>
+        </span>
     
           <div>
             <% if current_user.id == post.user_id%>
@@ -84,21 +65,6 @@
       </div>
           </div>  
         </div>
-
-      <script>
-        const current_id = `${<%="hidden_#{post.id}" %>}`
-        function myFunction() {
-          // const post_id = `hidden_${post.id}`;
-          // const post_id = "hiddendiv";
-          var x = document.getElementById(current_id);
-          // var x = document.getElementById(<%="hidden_#{post.id}" %>);
-          if (x.style.display === "none") {
-            x.style.display = "block";
-          } else {
-            x.style.display = "none";
-          }
-        }
-      </script>
 
 
     </section>
