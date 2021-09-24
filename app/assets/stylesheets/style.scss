@@ -48,7 +48,7 @@ h5 {
   font-family: 'Retrospective';
   color: black;
   font-weight: 200;
-  height: 1vh;
+  height: 2vh;
 }
 
 #center {
@@ -85,8 +85,7 @@ h5 {
   margin: 5% auto;
   width: 80%;
   padding: 0.5em;
-  height: 10vh;
-  // overflow: auto;
+  height: 15vh;
   border: 2px solid #e6c300;
 }
 
@@ -97,7 +96,7 @@ h5 {
   margin: 5% auto;
   // width: 100%;
   padding: 0.5em;
-  height: 10vh;
+  height: 15vh;
   // overflow: auto;
   border: 2px solid #e6c300;
 }
@@ -121,7 +120,7 @@ h5 {
   margin: 5% auto;
   width: 80%;
   padding: 0.5em;
-  height: 10vh;
+  height: 15vh;
   border: 2px solid #e6c300;
 }
 
@@ -138,16 +137,34 @@ h5 {
   border: 2px solid #e6c300;
 }
 
-// .close-button {
-//   // width: 40px;
-//   position: absolute;
-//   background-image: image-url('JF-Queen-Heart.png');
-//   background-size: 100%;
-//   margin-left: auto;
-//   margin-right: auto;
-//   // display: block;
-//   border: none;
-// }
+.close-button {
+  width: 50px;
+  // position: absolute;
+  background-image: image-url('JF-King-Heart.jpeg');
+  background-size: 100%;
+  // margin-left: auto;
+  // margin-right: auto;
+  // display: block;
+  border: none;
+  height: 70px;
+  // height: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+  // margin-left: auto;
+  // margin-right: auto;
+  // display: block;
+  // border-radius: 8px;
+  // height: 6vh;
+  // // width: 10%;
+  // // margin: 2% auto;
+  // font-family: 'Retrospective';
+  // // background-image: image-url('download.jpg');
+  // background-color: turquoise;
+  // color: #ff471a;
+  // border: 2px solid #e6c300;
+}
 
 .sbm-comment-btn {
   font-family: 'Retrospective';
@@ -246,10 +263,8 @@ select,
 .some-file-button,
 #post_post_image {
   position: relative;
-  display: inline-block;
-  // cursor: pointer;
+  font-display: inherit;
   margin: 1% auto;
-  height: 7vh;
   padding: 0.5em;
   background-color: #fff9e6;
   outline: #ff471a;
@@ -292,28 +307,53 @@ select:hover {
 .profile-img-nav {
   border-radius: 50%;
   height: 50px;
+  width: 50px;
   margin: 5px auto;
   right: 20px;
   position: absolute;
+  object-fit: cover;
   // margin-bottom: 50px;
 }
 
 .profile-img {
   border-radius: 50%;
   height: 50px;
+  width: 50px;
+  border: 2px solid rgb(0, 0, 102);
+  object-fit: cover;
   margin: 5px auto;
 }
 
 .profile-img-comment {
   border-radius: 50%;
   height: 25px;
+  width: 25px;
   margin: 5px auto;
+  object-fit: cover;
   float: left;
 }
 
-.post-img {
+.profile-square {
+  // border-radius: 9px;
+  border-radius: 50%;
+  border: 4px solid #e6c300;
+  border-radius: 50%;
   width: 200px;
+  object-fit: cover;
+  height: 200px;
+  margin-top: 50px;
+  margin-left: 40px;
+  // margin-left: auto;
+  // margin-right: auto;
+  // display: block;
+}
+
+.post-img {
+  // width: 200px;
+  max-width: 90%;
+  border-radius: 9px;
   margin-left: 30px;
+  margin-right: 30px;
   margin-bottom: 10px;
 }
 
@@ -321,7 +361,6 @@ select:hover {
   border-radius: 8px;
   padding: 0.5em;
   margin: 5% auto;
-  overflow: auto;
   // display: block;
   background-color: #fff9e6;
   bottom: 10%;
@@ -363,6 +402,7 @@ select:hover {
   height: 50px;
   position: relative;
   padding: 0.5em;
+  // overflow: auto;
   border: 2px solid #ff471a;
 }
 
@@ -426,6 +466,7 @@ select:hover {
 
 .post-heart {
   position: absolute;
+  margin-top: 0px;
   height: 70px;
   right: 8px;
 }
@@ -433,7 +474,7 @@ select:hover {
 .post-heart-broken {
   position: absolute;
   height: 70px;
-  right: 120px;
+  right: 180px;
 }
 
 .post-K {
@@ -441,19 +482,6 @@ select:hover {
   margin-left: auto;
   margin-right: auto;
   display: block;
-}
-
-.profile-square {
-  // border-radius: 9px;
-  border-radius: 50%;
-  border: 4px solid #e6c300;
-  border-radius: 50%;
-  width: 200px;
-  margin-top: 50px;
-  margin-left: 40px;
-  // margin-left: auto;
-  // margin-right: auto;
-  // display: block;
 }
 
 #time-com {
@@ -494,7 +522,7 @@ select:hover {
   // position: fixed;
   width: 100%;
   top: 65%;
-  padding-right: 500px;
+  padding-right: 550px;
   text-align: right;
 }
 

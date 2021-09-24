@@ -1,5 +1,5 @@
   <div class='header-title-login'>
-    <h1>♠️ Acebook</h1>
+    <h1>Acebook</h1>
   </div>
 <section class='feed-box'>
   <% @list_posts.each do |post| %>
@@ -39,15 +39,15 @@
                 <p id='post-♥️'>💔<%= post.likes %></p>
               <% end %>
             </span>
-            <%= image_tag('JF-King-Heart.jpeg', :onclick => "myFunction()", :class => 'post-K')%>
-            <%# <button onclick="myFunction()" class='close-button'>💬<%= post.comments.count %>
+            <%# <%= image_tag('JF-King-Heart.jpeg', :onclick => "myFunction()", :class => 'post-K') %>
+            <button onclick="myFunction()" class='close-button'></button>
             <p id='comment-count'>💬 <%= post.comments.count %> Komments</p>
             <p id='heart-the-post'>Heart post</p>
           </div>
         </div>
 
-        <%# <div id=<%="hidden_#{post.id}" %> 
-        <div id='hiddendiv--'>
+        <%# <div id=<%="hidden_#{post.id}" %>
+        <div id='hiddendiv'>
           <strong>Recent Komments</strong><br>
           <% ('if comments are empty ask didplay no comments yer') %>
           <% post.comments.each do |comment| %>
@@ -86,10 +86,10 @@
       <%# <button onclick="myFunction()" class='close-button'>💬<%= post.comments.count %>
 
       <script>
-        
         function myFunction() {
-          // const post_id = "hiddendiv";
-          // var x = document.getElementById("${post_id}");
+          // const post_id = `hidden_${post.id}`;
+          const post_id = "hiddendiv";
+          // var x = document.getElementById(`hidden_${post_id}`);
           var x = document.getElementById("hiddendiv");
           if (x.style.display === "none") {
             x.style.display = "block";
