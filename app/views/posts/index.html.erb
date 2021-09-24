@@ -42,16 +42,9 @@
               url_for({controller: "comments", action: "show", open: true, id: post.id}),
               method: :get,
               remote: true,
-<<<<<<< HEAD
               class: "show_comments" %> 
             <p id='comment-count'>Komments 💬 <%= post.comments.count %></p>
             <p id='heart-the-post-broken'>💔</p>
-=======
-              id: "show_comments_#{post.id}" %> 
-
-            <p id='comment-count'>💬 <%= post.comments.count %> Komments</p>
-            <p id='heart-the-post'>Heart post</p>
->>>>>>> 7ca945a50cb8fe492532b738fdab6d711ed4e339
           </div>
         </div>
 
