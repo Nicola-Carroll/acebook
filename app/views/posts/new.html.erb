@@ -1,17 +1,20 @@
-<div class='header-title'>
+<div class='header-title-login-small'>
   <h1>New Post</h1>
 </div>
-<section class='login-box'>
+<section class='new-post-box'>
   <%= form_for @new_post do |form| %>
     <div class="field">
-      <%= form.text_area :message, placeholder: 'Your post... 🔥', :id => "mytextarea" %>
+      <%= form.text_area :message, placeholder: 'Your post... 🔥', :id => 'mytextarea' %>
     </div>
     <div>
-      <%= form.label :post_image %>
-      <%= form.file_field :post_image, :id => "file-button" %>
+      <%= form.label :post_image, 'Upload picture', class: 'some-file-button' %>
+      <%# <span style="display:none"> %>
+        <%= form.file_field :post_image %>
+      <%# </span> %>
+     
     </div>
     <%= form.hidden_field :user_id, value: current_user.id %>
-    <%= form.submit "Submit" %>
+    <%= form.submit "Submit", class: 'sml-button'%>
   <% end %>
 </section>
 <% @new_post.errors.full_messages.each do |msg| %>

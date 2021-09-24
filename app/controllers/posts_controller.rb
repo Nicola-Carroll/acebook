@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    if (params[:post][:message].strip == '')
+    if (params[:post][:message].strip == '') || (params[:post][:message].include?('&nbsp;'))
       flash[:emptymessage] = 'Cannae submit empty post ya numpty'
       redirect_to new_post_path
     else
@@ -32,7 +32,10 @@ class PostsController < ApplicationController
       @post.likes -= 1
     end
     @post.save
-    render js: "$('#likes_#{params[:id]}').html('♥️ #{@post.likes}')"
+    (@post.likes >= 0 ) ? 
+    ( render js: "$('#likes_#{params[:id]}').html('♥️#{@post.likes}')" ) :
+    ( render js: "$('#likes_#{params[:id]}').html('💔#{@post.likes}')" )
+    # end
   end
 
   def show
