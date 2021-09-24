@@ -6,7 +6,9 @@
     <%# <%= image_tag(user_avatar(current_user.id), :class => 'profile-square')%>
     <h1 id='center-margin'><%= current_user.first_name + " " + current_user.last_name + " (" + current_user.pronouns %>)</h1>
     <section id='create_note_box'>
-      <%= current_user.username%>
+      <p>Your User: <%= current_user.username%>
+      <p>Your Email: <%= current_user.email%>
+      <p>Acebook member since: <%= time_ago_in_words(current_user.created_at) %>
     </section>
     <section id='list_note_box'>
       <%= emojify(current_user.bio) %>
@@ -28,64 +30,39 @@
         <div class='comment-box'>
           <div id='post-likes'>
         
-            <%=
-              link_to image_tag('JF-Queen-Heart.png', :class => 'post-heart'),
-              url_for({controller: "posts", action: "update", like: true, id: post.id}),
-              method: :patch,
-              remote: true,
-              class: "like_or_dislike_button" %>
-            <%=
-              link_to image_tag('JF-Joker-Spades.png', height: 70, :class => 'post-heart-broken'),
-              url_for({controller: "posts", action: "update", dislike: true, id: post.id}),
-              method: :patch,
-              remote: true,
-              class: "like_or_dislike_button" %>
-            <%= javascript_tag '$(".like_or_dislike_button").click();' %>           
-            
-            
+            <%= image_tag('JF-Queen-Heart.png', :class => 'post-heart') %>
+
             <span id=<%="likes_#{post.id}" %> class='post-♥️'>
               <% if post.likes >= 0 %>
-                <p id='post-♥️'>♥️<%= post.likes %></p>
+                <p id='heart-the-post'>♥️<%= post.likes %></p>
               <% else %>
-                <p id='post-♥️'>💔<%= post.likes %></p>
+                <p id='heart-the-post'>💔<%= post.likes %></p>
               <% end %>
             </span>
-            <%= image_tag('JF-King-Heart.jpeg', :onclick => "myFunction()", :class => 'post-K')%>
-            <%# <button onclick="myFunction()" class='close-button'>💬<%= post.comments.count %>
-            <p id='comment-count'>💬 <%= post.comments.count %> Komments</p>
-            <p id='heart-the-post'>Heart post</p>
-          </div>
+            <p id='comment-count-profile'>Kommennts 💬 <%= post.comments.count %></p>
+            <%= image_tag('JF-King-Heart.jpeg', :onclick => "myFunction()", :class => 'post-K-profile')%>
+          </div> 
         </div>
-
-        <%# <div id=<%="hidden_#{post.id}" %> 
-        <div id='hiddendiv--'>
-          <strong>Recent Komments</strong><br>
+        <div id='hiddendiv'>
+          <strong>Recent Komments on your post</strong><br>
           <% ('if comments are empty ask didplay no comments yer') %>
           <% post.comments.each do |comment| %>
          
           <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
           <div id='comment-message'>
             <%= emojify(comment.message) %>
-            <%= link_to image_tag('JF-Queen-Heart.png', :class => 'comment-heart'), [comment.post, comment], method: 'patch' %>
+            
           </div>
           <div id='comment-♥️'>
             <p id='time-com'>Posted <%= time_ago_in_words(comment.created_at) %></p>
-            <% if comment.likes > 0 %>
-            <p class='+'>♥️ <%= comment.likes %></p>
-            <% elsif comment.likes == 0 %>
-            <p class='0'>♥️ <%= comment.likes %></p>
-            <% elsif comment.likes < 0 %>
-            <p class='-'>♥️ <%= comment.likes %></p>
+            <% if post.likes >= 0 %>
+              <p id='post-♥️'>♥️<%= comment.likes %></p>
+            <% else %>
+              <p id='post-♥️'>💔<%= comment.likes %></p>
             <% end %>
           </div>
           <% end %>
-
-    
-          <div>
-            <% if current_user.id == post.user_id%>
-              <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"del-danger" %>
-            <% end %>
-          </div>
+            <%= link_to 'Delete Post', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"del-danger" %>
           
         </div>
 

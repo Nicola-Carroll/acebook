@@ -1,6 +1,3 @@
-  <div class='header-title-login'>
-    <h1>Acebook</h1>
-  </div>
 <section class='feed-box'>
   <% @list_posts.each do |post| %>
     <section class='feed-post-box'>
@@ -40,9 +37,8 @@
             </span>
             <%# <%= image_tag('JF-King-Heart.jpeg', :onclick => "myFunction()", :class => 'post-K') %>
 
-
             <%=
-              link_to "Show comments",
+              link_to "Show Comments",
               url_for({controller: "comments", action: "show", open: true, id: post.id}),
               method: :get,
               remote: true,
@@ -59,7 +55,7 @@
     
           <div>
             <% if current_user.id == post.user_id%>
-              <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"del-danger" %>
+              <%= link_to 'Delete Post', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"del-danger" %>
             <% end %>
           </div>
       </div>
