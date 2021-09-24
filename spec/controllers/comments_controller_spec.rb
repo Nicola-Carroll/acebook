@@ -6,7 +6,7 @@ RSpec.describe CommentsController, type: :controller do
       session[:user_id] = 1
       post :create, params: { comment: { message: "Hello, world!", user_id: 1}, post_id: 1 }
       expect(response).to redirect_to(posts_path)
-    endgit 
+    end
 
     it "creates a comment" do
       session[:user_id] = 1
