@@ -80,10 +80,8 @@
             <% if current_user.id == post.user_id%>
               <%= link_to 'Delete', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"del-danger" %>
             <% end %>
-          </div>
-          
+          </div>  
         </div>
-      <%# <button onclick="myFunction()" class='close-button'>💬<%= post.comments.count %>
 
       <script>
         function myFunction() {
@@ -103,15 +101,3 @@
     </section>
   <% end %>
 </section>
-
-<%# <script>
-function myFunction() {
-  var x = document.getElementById("hiddendiv");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-</script> %>
-
