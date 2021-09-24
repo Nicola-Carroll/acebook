@@ -6,7 +6,7 @@ RSpec.feature "Post", type: :feature do
     add_new_sample_user
     login
     click_link "New Post"
-    fill_in "message", with: "Hello, world!"
+    fill_in "mytextarea", with: "Hello, world!"
     click_button "Submit"
     expect(page).to have_content("Hello, world!")
   end
