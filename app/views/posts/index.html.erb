@@ -26,26 +26,25 @@
               method: :patch,
               remote: true,
               class: "like_or_dislike_button" %>        
+            <p id='heart-the-post'>♥️</p>
             
-            
-            <span id=<%="likes_#{post.id}" %> class='post-♥️'>
+            <span id=<%="likes_#{post.id}" %> class='post-♥️-main'>
               <% if post.likes >= 0 %>
-                <p id='post-♥️'>♥️<%= post.likes %></p>
+                <p id='post-♥️-main'>♥️<%= post.likes %></p>
               <% else %>
-                <p id='post-♥️'>💔<%= post.likes %></p>
+                <p id='post-♥️-main'>💔<%= post.likes %></p>
               <% end %>
             </span>
             <%# <%= image_tag('JF-King-Heart.jpeg', :onclick => "myFunction()", :class => 'post-K') %>
 
             <%=
-              link_to "Show Comments",
+              link_to "Show",
               url_for({controller: "comments", action: "show", open: true, id: post.id}),
               method: :get,
               remote: true,
               class: "show_comments" %> 
-
-            <p id='comment-count'>💬 <%= post.comments.count %> Komments</p>
-            <p id='heart-the-post'>Heart post</p>
+            <p id='comment-count'>Komments 💬 <%= post.comments.count %></p>
+            <p id='heart-the-post-broken'>💔</p>
           </div>
         </div>
 
@@ -55,7 +54,7 @@
     
           <div>
             <% if current_user.id == post.user_id%>
-              <%= link_to 'Delete Post', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"del-danger" %>
+              <%= link_to 'Delete Post', post_path(post), method: :delete, data:{ confirm: "Are you sure?"}, class:"del-danger-index" %>
             <% end %>
           </div>
       </div>

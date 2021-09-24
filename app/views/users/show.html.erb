@@ -30,7 +30,7 @@
         <div class='comment-box'>
           <div id='post-likes'>
         
-            <%= image_tag('JF-Queen-Heart.png', :class => 'post-heart') %>
+            <%= image_tag('JF-Queen-Heart.png', :class => 'post-heart-broken') %>
 
             <span id=<%="likes_#{post.id}" %> class='post-♥️'>
               <% if post.likes >= 0 %>
@@ -40,7 +40,7 @@
               <% end %>
             </span>
             <p id='comment-count-profile'>Kommennts 💬 <%= post.comments.count %></p>
-            <%= image_tag('JF-King-Heart.jpeg', :onclick => "myFunction()", :class => 'post-K-profile')%>
+            <%= image_tag('JF-King-Heart.jpeg', :class => 'post-K-profile')%>
           </div> 
         </div>
         <div id='hiddendiv'>

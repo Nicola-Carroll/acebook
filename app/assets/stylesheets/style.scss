@@ -56,6 +56,12 @@ h5 {
   margin: 1% auto;
 }
 
+#center-acc {
+  text-align: center;
+  margin: 1% auto;
+  color: white;
+}
+
 #center-margin {
   text-align: center;
   margin: 1% auto;
@@ -133,9 +139,9 @@ h5 {
   margin: 2% auto;
   font-family: 'Retrospective';
   // background-image: image-url('download.jpg');
-  background-color: turquoise;
+  background-color: #2596be;
   font-weight: 200;
-  color: #ff471a;
+  color: #e84b2c;
   border: 2px solid #2596be;
 }
 
@@ -158,7 +164,7 @@ h5 {
 .sbm-comment-btn {
   font-family: 'Retrospective';
   border-radius: 8px;
-  background-color: turquoise;
+  background-color: #2596be;
   color: #ff471a;
   border: 2px solid #2596be;
 }
@@ -173,8 +179,8 @@ h5 {
   // margin: 2% auto;
   font-family: 'Retrospective';
   // background-image: image-url('download.jpg');
-  background-color: turquoise;
-  color: #ff471a;
+  background-color: #2596be;
+  color: #e84b2c;
   border: 2px solid #2596be;
 }
 
@@ -192,18 +198,37 @@ h5 {
   border: 2px solid #2596be;
 }
 
+.del-danger-index {
+  border-radius: 8px;
+  float: right;
+  height: 6vh;
+  padding: 0.3em;
+  display: block;
+  font-family: 'Retrospective';
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: #e85d9a;
+  color: black;
+  border: 2px solid #2596be;
+  margin-top: 20px;
+}
+
 .show_comments {
   text-decoration: none;
-  color: #ff471a;
+  color: white;
   border: 2px solid #2596be;
   width: 50px;
   background-image: image-url('JF-King-Heart.jpeg');
   background-size: 100%;
   border: none;
-  height: 70px;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
+  // height: 70px;
+  // margin-left: auto;
+  // margin-right: auto;
   display: block;
+
+  height: 70px;
+  left: 8px;
 }
 
 form input[type='text'],
@@ -215,7 +240,7 @@ form input[type='password'] {
   position: relative;
   font-family: 'Retrospective';
   color: black;
-  background-color: #fff9e6;
+  background-color: #fadbdb;
   outline: #ff471a;
   border: 2px solid #2596be;
 }
@@ -247,7 +272,7 @@ form input[type='password'] {
   padding: 0.3em;
   margin: 1% auto;
   font-family: 'Retrospective';
-  background-color: #fff9e6;
+  background-color: #fadbdb;
   /* background-image: image-url('images/space6-1.jpg'); */
   /* background-image: url('images/space11.jpg'); */
   outline: #ff471a;
@@ -261,7 +286,7 @@ select,
   font-display: inherit;
   margin: 1% auto;
   padding: 0.5em;
-  background-color: #fff9e6;
+  background-color: #fadbdb;
   outline: #ff471a;
   border-radius: 8px;
   border: 2px solid #2596be;
@@ -310,8 +335,9 @@ select,
   border-radius: 50%;
   height: 50px;
   width: 50px;
-  border: 2px solid rgb(0, 0, 102);
+  border: 2px solid;
   object-fit: cover;
+  border: 1px solid #2596be;
   margin: 5px auto;
 }
 
@@ -321,6 +347,8 @@ select,
   width: 25px;
   margin: 5px auto;
   object-fit: cover;
+  // border: 1px solid #2596be;
+  border: 1px solid #15a793;
   float: left;
 }
 
@@ -420,7 +448,7 @@ select,
   // display: none;
   margin-top: 5%;
   // margin: 0% auto;
-  border: 2px solid #3e5275;
+  border: 2px solid #15a793;
   background-color: #fff9e6;
 }
 
@@ -435,10 +463,10 @@ select,
   margin: 0.5% auto;
   margin-left: 30px;
   padding: 0.2em;
-  background-color: white;
+  background-color: #fbdbeb;
   bottom: 10%;
   position: relative;
-  border: 2px solid #ff471a;
+  border: 2px solid #15a793;
   cursor: pointer;
 }
 
@@ -448,7 +476,7 @@ select,
   // margin-left: -10%;
   width: 82%;
   padding: 0.2em;
-  background-color: white;
+  // background-color: white;
   bottom: 10%;
   position: relative;
   // cursor: pointer;
@@ -478,7 +506,13 @@ select,
 
   position: absolute;
   height: 70px;
-  right: 180px;
+  right: 120px;
+}
+
+.post-heart-show {
+  // position: absolute;
+  height: 70px;
+  position: right;
 }
 
 .post-heart-broken {
@@ -526,22 +560,37 @@ select,
   text-align: left;
 }
 
+.post-♥️-main {
+  position: absolute;
+  width: 100%;
+  top: 65%;
+  padding-right: 190px;
+  text-align: right;
+}
+
 #heart-the-post {
+  position: absolute;
+  width: 100%;
+  top: 65%;
+  padding-right: 100px;
+  text-align: right;
+}
+
+#heart-the-post-broken {
   position: absolute;
   width: 100%;
   top: 65%;
   padding-right: 70px;
   text-align: right;
 }
-
 #comment-count {
   display: block;
   position: absolute;
   // position: fixed;
   width: 100%;
   top: 65%;
-  padding-right: 550px;
-  text-align: right;
+  padding-left: 55px;
+  text-align: left;
 }
 
 #comment-count-profile {
@@ -576,10 +625,10 @@ select,
 }
 
 .ace-logo {
-  height: 145px;
+  height: 205px;
   border-radius: 5px;
   display: block;
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -624,6 +673,7 @@ input[type='submit']:hover,
 button:hover,
 .show_comments:hover,
 .del-danger:hover,
+.del-danger-index:hover,
 .profile-img-nav:hover,
 .post-K:hover,
 .post-heart:hover,
@@ -673,7 +723,7 @@ select:hover {
   padding: 0.5em;
   margin: 10% auto;
   display: absolute;
-  background-color: #fff9e6;
+  background-color: #fadbdb;
   margin-top: 15%;
   outline: #ff471a;
   border: 2px solid #2596be;
