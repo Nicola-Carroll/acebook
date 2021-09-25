@@ -1,13 +1,10 @@
+<span>
+  <p id="center-no-p"><%= ("There are no mathing posts for " + emojify(@display_search)) if @list_posts.count == 0 %></p>
+</span>
 <div class='flow-search'>
   <h1>Posts matching the seach of "<%= emojify(@display_search) %>"</h1>
 </div>
-<%# "There are no mathing posts for " %>
 <section class='feed-box'>
-  <%# <div class='new-post-box'> %>
-  <span>
-    <p align="center"><%= ("There are no mathing posts for " + emojify(@display_search)) if @list_posts.count == 0 %></p>
-  </span>
-
   <% @list_posts.each do |post| %>
     <section class='feed-post-box'>
     
@@ -34,7 +31,7 @@
               <% end %>
             </span>
             <p id='comment-count-profile'>Kommennts 💬 <%= post.comments.count %></p>
-            <%= image_tag('JF-King-Heart.jpeg', :onclick => "myFunction()", :class => 'post-K-profile')%>
+            <%= image_tag('JF-King-Heart.jpeg', :class => 'post-K-profile')%>
           </div> 
 
                

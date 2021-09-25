@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      redirect_to login_path, notice: 'Signed up successfully! Please login'
+      redirect_to login_path, notice: 'Signed up successfully! Please Log In'
     else
       render 'new', notice: 'Oops something went wront.. Please try again!'
     end

@@ -1,29 +1,29 @@
-        <div id=<%="hidden_#{post.id}" %> >
-        <%# <div id='hiddendiv'> %>
-          <strong>Recent Komments</strong><br>
-          <% ('if comments are empty ask didplay no comments yer') %>
-          <% post.comments.each do |comment| %>
-         
-          <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
-          <div id='comment-message'>
-            <%= emojify(comment.message) %>
-            <%= link_to image_tag('JF-Queen-Heart.png', :class => 'comment-heart'), [comment.post, comment], method: 'patch' %>
-          </div>
-          <div id='comment-♥️'>
-            <p id='time-com'>Posted <%= time_ago_in_words(comment.created_at) %></p>
-            <% if comment.likes > 0 %>
-            <p class='+'>♥️ <%= comment.likes %></p>
-            <% elsif comment.likes == 0 %>
-            <p class='0'>♥️ <%= comment.likes %></p>
-            <% elsif comment.likes < 0 %>
-            <p class='-'>♥️ <%= comment.likes %></p>
-            <% end %>
-          </div>
-          <% end %>
-          <div>
-            <%= form_for([post, post.comments.build]) do |form| %>
-              <%= form.text_field :message, placeholder: 'Write a comment...', required: true, :class => 'comment-field' %>
-              <%= form.hidden_field :user_id, value: current_user.id %>
-              <%= form.submit "Submit", :class => 'sbm-comment-btn' %>
-            <% end %>
-          </div>
+<div id=<%="hidden_#{post.id}" %> >
+  <br><strong id='rcs-com'>Recent Komments</strong><br>
+  <% ('if comments are empty ask didplay no comments yer') %>
+  <% post.comments.each do |comment| %>
+ 
+  <%= image_tag(user_avatar(comment.user_id), :class => 'profile-img-comment') %>
+  <div id='comment-message'>
+    <%= emojify(comment.message) %>
+    <%= link_to image_tag('JF-Queen-Heart.png', :class => 'comment-heart'), [comment.post, comment], method: 'patch' %>
+  </div>
+  <div id='comment-♥️'>
+    <p id='time-com'>Posted <%= time_ago_in_words(comment.created_at) %></p>
+    <% if comment.likes > 0 %>
+    <p class='+'>♥️ <%= comment.likes %></p>
+    <% elsif comment.likes == 0 %>
+    <p class='0'>♥️ <%= comment.likes %></p>
+    <% elsif comment.likes < 0 %>
+    <p class='-'>♥️ <%= comment.likes %></p>
+    <% end %>
+  </div>
+  <% end %>
+  <div>
+    <%= form_for([post, post.comments.build]) do |form| %>
+      <%= form.text_field :message, placeholder: 'Write a comment...', required: true, :class => 'comment-field' %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      <%= form.submit "Submit", :class => 'sbm-comment-btn' %>
+    <% end %>
+  </div>
+</div>
