@@ -1,16 +1,6 @@
 @font-face {
-  font-family: 'CFParis';
-  src: url('CFParisOldStyle-Regular.ttf') format('truetype');
-}
-
-@font-face {
   font-family: 'Queens Gambit';
   src: url('Queens_Gambit.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Retrograpth';
-  src: url('RetrographDemo.ttf') format('truetype');
 }
 
 @font-face {
@@ -48,6 +38,12 @@ h5 {
   margin: 1% auto;
 }
 
+#center-no-p {
+  text-align: center;
+  margin: 8% auto;
+  // margin-top: 30%;
+}
+
 #left-w {
   text-align: center;
   margin: 1% auto;
@@ -66,11 +62,11 @@ h5 {
   border-radius: 8px;
 }
 
-#center-acc {
-  text-align: center;
-  margin: 1% auto;
-  color: white;
-}
+// #center-acc {
+//   text-align: center;
+//   margin: 1% auto;
+//   color: white;
+// }
 
 #center-margin {
   text-align: center;
@@ -99,7 +95,7 @@ h5 {
 .header-title {
   border-radius: 8px;
   padding: 0.5em;
-  margin: 5% auto;
+  margin: 0% auto;
   width: 80%;
   padding: 0.5em;
   height: 15vh;
@@ -110,7 +106,7 @@ h5 {
   text-align: center;
   border-radius: 8px;
   padding: 0.5em;
-  margin: 5% auto;
+  margin: 0% auto;
   padding: 0.5em;
   height: 15vh;
 }
@@ -119,18 +115,16 @@ h5 {
   text-align: center;
   border-radius: 8px;
   padding: 0.5em;
-  margin: 5% auto;
+  margin: 0% auto;
   padding: 0.5em;
-  height: 10vh;
-  overflow: auto;
-  border: 2px solid #2596be;
+  height: 22vh;
 }
 
 .header-title-login-small {
   text-align: center;
   border-radius: 8px;
   padding: 0.5em;
-  margin: 5% auto;
+  margin: 0% auto;
   width: 80%;
   background-size: 50%;
   padding: 0.5em;
@@ -147,17 +141,6 @@ h5 {
   font-weight: 200;
   color: #e84b2c;
   border: 2px solid #2596be;
-}
-
-.close-button {
-  width: 50px;
-  background-image: image-url('JF-King-Heart.jpeg');
-  background-size: 100%;
-  border: none;
-  height: 70px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
 }
 
 .sbm-comment-btn {
@@ -268,7 +251,6 @@ form input[type='password'] {
   margin: 1% auto;
   font-family: 'Retrospective';
   background-color: #fadbdb;
-
   outline: #ff471a;
   border: 2px solid #2596be;
 }
@@ -404,7 +386,7 @@ select,
 .feed-post-box2 {
   border-radius: 12px;
   padding: 0.5em;
-  margin: 5% auto;
+  margin: 2% auto;
   // background-image: image-url('wallpaper-cards.png');
   background-image: image-url('2.jpeg');
   background-size: 100%;
@@ -416,7 +398,7 @@ select,
 .login-box {
   border-radius: 20px;
   padding: 0.5em;
-  margin: 5% auto;
+  margin: 2% auto;
   margin-bottom: 70px;
   width: 80%;
   background-image: image-url('wallpaper-cards.png');
@@ -430,7 +412,7 @@ select,
   text-align: center;
   border-radius: 8px;
   padding: 0.5em;
-  margin: 5% auto;
+  margin: 2% auto;
   margin-bottom: 70px;
   width: 80%;
   background-image: image-url('wallpaper-cards.png');
@@ -513,10 +495,10 @@ select,
   right: 120px;
 }
 
-.post-heart-show {
-  height: 70px;
-  position: right;
-}
+// .post-heart-show {
+//   height: 70px;
+//   position: right;
+// }
 
 .post-heart-broken {
   border-radius: 5px;
@@ -526,12 +508,12 @@ select,
   right: 8px;
 }
 
-.post-K {
-  height: 70px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
+// .post-K {
+//   height: 70px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   display: block;
+// }
 
 .post-K-profile {
   border-radius: 5px;
@@ -640,7 +622,7 @@ select,
 }
 
 .ace-logo {
-  height: 205px;
+  height: 150px;
   border-radius: 5px;
   display: block;
   margin-left: auto;
@@ -756,7 +738,7 @@ select:hover {
   height: 150px;
 }
 
-#create_note_box {
+#user-details-box {
   text-align: left;
   border: 2px solid #2596be;
   width: 45%;
@@ -771,7 +753,7 @@ select:hover {
   overflow: auto;
 }
 
-#list_note_box {
+#user-bio-box {
   text-align: center;
   border: 2px solid #2596be;
   width: 45%;

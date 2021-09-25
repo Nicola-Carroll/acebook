@@ -5,12 +5,12 @@
   <section class='profile-details'>
     <%# <%= image_tag(user_avatar(current_user.id), :class => 'profile-square')%>
     <h1 id='center-margin'><%= current_user.first_name + " " + current_user.last_name + " (" + current_user.pronouns %>)</h1>
-    <section id='create_note_box'>
+    <section id='user-details-box'>
       <p>Your User: <%= current_user.username%>
       <p>Your Email: <%= current_user.email%>
       <p>Acebook member since: <%= time_ago_in_words(current_user.created_at) %>
     </section>
-    <section id='list_note_box'>
+    <section id='user-bio-box'>
       <%= emojify(current_user.bio) %>
     </section>
 
