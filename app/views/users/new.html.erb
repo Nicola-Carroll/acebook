@@ -30,11 +30,11 @@
       <%= form.text_field :email_confirmation, placeholder: 'suckerberg@acebook.com', required: true %>
     </div>
     <div>
-      <%= form.label :pronouns, " Select your pronouns", :id => 'left-w' %><br>
-      <%= form.select :pronouns, [" ", "he/him","she/her","they/them","other"], required: true, :class => 'sml-button' %>
+      <%= form.text_area :bio, placeholder: 'Your personal Bio... ', required: true, :class => 'textarea' %>
     </div>
     <div>
-      <%= form.text_area :bio, placeholder: 'Your personal Bio... ', required: true, :class => 'textarea' %>
+      <%= form.label :pronouns, " Select your pronouns", :id => 'left-w' %><br>
+      <%= form.select :pronouns, [" ", "he/him","she/her","they/them","other"], required: true, :class => 'sml-button' %>
     </div>
     <div>
       <%= form.label :profile_image, 'Upload profile picture', class: 'some-file-button' %><br>
