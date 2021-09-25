@@ -9,7 +9,9 @@
 }
 
 body {
-  background-color: #f7c2c9;
+  // background-color: #f7c2c9;
+  background-image: image-url('wallpaper-cards.png');
+  background-size: 100%;
   font-family: 'Retrospective';
 }
 
@@ -39,15 +41,17 @@ h5 {
 }
 
 #center-no-p {
+  background-color: #fadceb;
   text-align: center;
+  border-radius: 8px;
   margin: 8% auto;
-  // margin-top: 30%;
+  padding: 0.5em;
 }
 
 #left-w {
   text-align: center;
   margin: 1% auto;
-  background-color: #fadceb;
+  background-color: #fadbdb;
   border-radius: 8px;
   padding: 0.5em;
 }
@@ -56,7 +60,7 @@ h5 {
   text-align: center;
   margin: 1% auto;
   padding: 0.5em;
-  background-color: #fadceb;
+  background-color: #fadbdb;
   margin-left: 26%;
   margin-right: 26%;
   border-radius: 8px;
@@ -89,24 +93,24 @@ h5 {
   height: 100%;
   border-radius: 40px;
   overflow: auto;
-  // /* overflow: scroll; */
 }
 
 .header-title {
   border-radius: 8px;
   padding: 0.5em;
-  margin: 0% auto;
+  margin: 2% auto;
   width: 80%;
+  background-color: #fadceb;
   padding: 0.5em;
-  height: 15vh;
-  // border: 2px solid #2596be;
+  height: 12vh;
 }
 
 .header-title-login {
   text-align: center;
   border-radius: 8px;
   padding: 0.5em;
-  margin: 0% auto;
+  background-color: #fadceb;
+  margin: 1% auto;
   padding: 0.5em;
   height: 15vh;
 }
@@ -115,6 +119,7 @@ h5 {
   text-align: center;
   border-radius: 8px;
   padding: 0.5em;
+  background-color: #fadceb;
   margin: 0% auto;
   padding: 0.5em;
   height: 22vh;
@@ -129,6 +134,7 @@ h5 {
   background-size: 50%;
   padding: 0.5em;
   height: 15vh;
+  background-color: #fadceb;
 }
 
 .submit-button {
@@ -237,7 +243,8 @@ form input[type='password'] {
   margin-top: 2px;
   border: 2px solid #2596be;
   border-radius: 12px;
-  background-image: image-url('wallpaper-cards.png');
+  // background-image: image-url('wallpaper-cards.png');
+  background-image: image-url('4.jpeg');
   background-size: 100%;
   background-color: #f7c2c9;
   height: 150px;
@@ -255,9 +262,19 @@ form input[type='password'] {
   border: 2px solid #2596be;
 }
 
-select,
-.some-file-button,
 #post_post_image {
+  position: relative;
+  font-display: inherit;
+  margin: 1% auto;
+  padding: 0.5em;
+  background-color: #f7c2c9;
+  outline: #ff471a;
+  border-radius: 8px;
+  border: 2px solid #2596be;
+}
+
+select,
+.some-file-button {
   position: relative;
   font-display: inherit;
   margin: 1% auto;
@@ -388,8 +405,9 @@ select,
   padding: 0.5em;
   margin: 2% auto;
   // background-image: image-url('wallpaper-cards.png');
-  background-image: image-url('2.jpeg');
-  background-size: 100%;
+  // background-image: image-url('2.jpeg');
+  // background-size: 100%;
+  background-color: #fadceb;
   bottom: 0%;
   outline: #ff471a;
   border: 2px solid #2596be;
@@ -401,8 +419,9 @@ select,
   margin: 2% auto;
   margin-bottom: 70px;
   width: 80%;
-  background-image: image-url('wallpaper-cards.png');
-  background-size: 100%;
+  // background-image: image-url('wallpaper-cards.png');
+  // background-size: 100%;
+  background-color: #f7c2c9;
   bottom: 10%;
   outline: #ff471a;
   border: 2px solid #2596be;
@@ -415,8 +434,9 @@ select,
   margin: 2% auto;
   margin-bottom: 70px;
   width: 80%;
-  background-image: image-url('wallpaper-cards.png');
-  background-size: 100%;
+  // background-image: image-url('wallpaper-cards.png');
+  // background-size: 100%;
+  background-color: #fadbdb;
   bottom: 10%;
   outline: #ff471a;
   border: 2px solid #2596be;
@@ -623,6 +643,7 @@ select,
 
 .ace-logo {
   height: 150px;
+  background-color: #fadceb;
   border-radius: 5px;
   display: block;
   margin-left: auto;
