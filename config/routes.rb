@@ -3,9 +3,14 @@ Rails
   .routes
   .draw do
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    resources :posts do
-      resources :comments
-    end
+    # resources :posts do
+    #   resources :comments
+    # end
+
+    get 'posts', to: 'posts#index'
+    post 'posts', to: 'posts#create'
+    patch 'posts', to: 'posts#update'
+    delete 'posts/:id(.:format)', to: 'posts#destroy'
 
     get 'show_comments', to: 'comments#show'
 
