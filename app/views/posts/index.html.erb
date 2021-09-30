@@ -9,7 +9,7 @@
           <h6 id='time'>Posted <%= time_ago_in_words(post.created_at) %></h6>
       </div>
       <hr id='post-hr'>
-      <%= post.message %>
+      <%= emojify(post.message) %>
       <%= image_tag((post.post_image), :class => 'post-img' ) if post.post_image.attached? %>
         <div class='comment-box'>
           <div id='post-likes'>
