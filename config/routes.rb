@@ -7,7 +7,8 @@ Rails
       resources :comments
     end
 
-    # get 'posts', to: 'posts#index'
+    get 'posts', to: 'posts#index'
+
     # post 'posts', to: 'posts#create'
     # patch 'posts', to: 'posts#update'
     # delete 'posts/:id(.:format)', to: 'posts#destroy'
