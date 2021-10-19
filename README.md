@@ -1,6 +1,34 @@
 # AceBook
 
-## Quickstart
+## Overview
+
+This project is a simple Facebook clone. Users can signup with an optional profile picture, login, make posts (with images), like/dislike and comment on posts, search all posts for specific content, and view their own profile page.
+[
+This app is deployed on Heroku.
+](https://whispering-woodland-40745.herokuapp.com/)
+
+## Team members
+
+- [Fiona Apps](https://github.com/oddpotato)
+- [Yousuf Mohamed](https://github.com/yousufmohamed17)
+- [Graeme Stirling](https://github.com/gjstirling)
+- [Nicola Carroll](https://github.com/Nicola-Carroll)
+- [Suhani Zaman](https://github.com/suhani-zaman)
+- [Corinne Bösch](https://github.com/CorinneBosch)
+
+
+## Technologies
+
+## Setting up databases
+
+## Running the program locally
+
+## Running the tests
+
+
+
+
+
 
 First, clone this repository. Then:
 
