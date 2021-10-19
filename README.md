@@ -19,6 +19,14 @@ This app is deployed on Heroku.
 
 ## Technologies
 
+- Framework: Ruby on Rails
+- Database tools/ORM: ActiveRecord, ActiveStorage
+- Testing: RSpec and Capybara
+- Linting: Rubocop
+- Deployment: Heroku
+- Business tools: Miro, Trello, EasyRetro
+- Other: jQuery
+
 ## Setting up databases
 
 ## Running the program locally
