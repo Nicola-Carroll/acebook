@@ -27,6 +27,11 @@ This app is deployed on Heroku.
 - Business tools: Miro, Trello, EasyRetro
 - Other: jQuery
 
+## Initial domain model
+
+![image](https://user-images.githubusercontent.com/83607124/138064371-c394dd0f-facb-45ea-b140-9a9318e77c51.png)
+
+
 ## Running the program locally
 
 Ensure you have Node.js installed on your machine as the JavaScript runtime. 
